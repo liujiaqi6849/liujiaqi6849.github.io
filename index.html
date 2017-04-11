@@ -25,7 +25,8 @@
 			border-radius: 150px;		
 			background: url('headimg.jpg') no-repeat ;
 			background-size: 100%;
-			margin-left:2%;
+			display: inline-block;
+			margin-left:-90%;
 			
 
 		}
@@ -86,10 +87,10 @@
 		 				afterLoad:function(val,i){
 		 					
 		 					$(".headimg").animate({
-		 									marginLeft:20+"%"
+		 									marginLeft:0+"%"
 		 										},1000)
 		 					$(".text").animate({
-		 									marginLeft:50+"%"
+		 									marginLeft:0+"%"
 		 										},2000)
 
 		 					console.log("当前是"+val+"第"+i+"屏")
