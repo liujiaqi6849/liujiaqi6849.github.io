@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.css">
+	<style>
+		
+		.section{
+			background-color: #0075D1
+		}
+		.leaving{
+			background-color:#9f3;
+		}
+		.section1{
+			background:url("bg1.jpg") no-repeat ;
+			background-size:100%;
+			/*text-align: center;*/
+		}
+		.headimg{
+			box-sizing: border-box;
+			width:300px;
+			height:300px;	
+			border:8px solid #22c3aa;
+			border-radius: 150px;		
+			background: url('headimg.jpg') no-repeat ;
+			background-size: 100%;
+			margin-left:2%;
+			margin-top: 7%;
+
+		}
+		.text{
+			
+			margin-left:90%;
+
+			height:auto;
+			
+			
+		}
+	</style>
+</head>
+<body>
+<div id="fullpage">
+	<div class="section section1">
+	<div class="headimg">
+		<!-- <img src="headimg.jpg" alt="" width="100%" />  -->
+	</div>
+	<div class="text">
+	<h2>刘嘉琪</h2>
+	<p>542471870@qq.com</p>
+	<p>求职：前端工程师</p>
+	</div>
+	</div>
+	<div class="section 2"> 
+	<div class="slide" ><img src="1.jpg" alt="" width="100%"></div>
+	<div class="slide" ><img src="2.jpg" alt="" width="100%"></div>
+	<div class="slide" ><img src="3.jpg" alt="" width="100%"></div>
+	<div class="slide" ><img src="4.jpg" alt="" width="100%"></div>
+	</div>
+	<div class="section 3">slide3</div>
+	<div class="section 4">slide4</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.js"></script>
+<script>
+	$(function(){
+
+		 $('#fullpage').fullpage({
+		 				resize:true,
+		 				anchors:['page1','page2','page3','page4'],
+		 				navigation:true,
+		 				navigationPosition:"right",
+		 				navigationTooltips:["第一","第二","第三","第四"],
+		 				showActiveTooltip :true,
+		 				slidesNavigation:true,
+		 				//sectionsColor:['#0075D1', '#C2E5FF', '#FDF6E1', '#E9E9E9'],
+		 				//controlArrows:false,
+		 				//verticalCentered:false,
+		 				//css3:false
+		 				//loopTop:true,
+		 				loopBottom:true,
+		 				menu:true,
+		 				//continuousVertical:true,
+		 				paddingTop:"20px",
+		 				paddingBottom:"20px",
+		 				afterLoad:function(val,i){
+		 					
+		 					$(".headimg").animate({
+		 									marginLeft:20+"%"
+		 										},1000)
+		 					$(".text").animate({
+		 									marginLeft:50+"%"
+		 										},2000)
+
+		 					console.log("当前是"+val+"第"+i+"屏")
+		 				},
+		 				onLeave:function(now,next,d){
+		 						console.log("next "+next)
+		 					console.log("now "+now)
+
+		 						$('.section').eq(now-1).addClass("leaving");
+		 						$('.section').eq(next-1).removeClass("leaving");
+		 						
+		 					
+		 				},
+		 				});
+	
+	})
+	//$("#fullpage .slide").click(function(){$.fn.fullpage.moveTo(2,2)})
+	
+</script>
+</body>
+</html>
