@@ -2,20 +2,28 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.css">
 	<style>
-		
+		.body{
+			font-family:"Microsoft YaHei",sans-serif;
+			font-size: 1.1em;
+
+		}
 		.section{
-			background-color: #0075D1
+			background-color: #b6ddfc;
+	/*#00ff80*/
 		}
 		.leaving{
-			background-color:#9f3;
+			background-color:#f6e658;
+			/*#9f3*/
 		}
 		.section1{
-/* 			background:url("bg1.jpg") no-repeat ; */
+			/*background:url("images/bg2.jpg") no-repeat ;*/
 			background-size:100%;
 			text-align: center;
+			
 		}
 		.headimg{
 			box-sizing: border-box;
@@ -23,40 +31,77 @@
 			height:300px;	
 			border:8px solid #22c3aa;
 			border-radius: 150px;		
-			background: url('headimg.jpg') no-repeat ;
+			background: url('images/headimg.jpg') no-repeat ;
 			background-size: 100%;
 			display: inline-block;
-			margin-left:-90%;
 			
+			opacity: 0
+
+		}
+		.test{
+			margin-top: -20%;
 
 		}
 		.text{
 			
-			margin-left:90%;
-
+			background:linear-gradient(to left,#b6ddfc,#1c1b1c,#b6ddfc) no-repeat bottom/50% 2px;
+			opacity:0;
 			height:auto;
 			
 			
 		}
+		.text h1{
+			text-shadow:2px 2px #fff,3px 2px #eee;
+		}
+		.text::after{
+			content: "";
+			display:block;
+			height:1rem;
+
+		}
+		.hello{
+			color:#555;
+			font-size:2em;
+			opacity:0;
+		}
+		.triangle{
+			display: inline-block;
+			width:0px;
+			height:0px;
+			border-width:0px 20px 20px 20px;
+			border-color: black transparent;
+			border-style:solid;
+			transform:rotate(180deg);
+		}
 	</style>
+
 </head>
 <body>
 <div id="fullpage">
 	<div class="section section1">
+	<div class="test">
 	<div class="headimg">
 		<!-- <img src="headimg.jpg" alt="" width="100%" />  -->
 	</div>
+	<div class="hello">早上好！很高兴见到你~~</div>
+	
+	<audio style="display: block;margin:0 auto"src="http://sc1.111ttt.com/2015/1/01/16/94161509315.mp3" controls="controls">
+</audio>
+
 	<div class="text">
-	<h2>刘嘉琪</h2>
+	
+	<h1>刘嘉琪</h1>
 	<p>542471870@qq.com</p>
 	<p>求职：前端工程师</p>
+	
+	</div>
 	</div>
 	</div>
 	<div class="section 2"> 
-	<div class="slide" ><img src="1.jpg" alt="" width="100%"></div>
-	<div class="slide" ><img src="2.jpg" alt="" width="100%"></div>
-	<div class="slide" ><img src="3.jpg" alt="" width="100%"></div>
-	<div class="slide" ><img src="4.jpg" alt="" width="100%"></div>
+	<div class="slide" ><img src="images/1.jpg" alt="" width="100%"></div>
+	<div class="slide" ><img src="images/2.jpg" alt="" width="100%"></div>
+	<div class="slide" ><img src="images/3.jpg" alt="" width="100%"></div>
+	<div class="slide" ><img src="images/4.jpg" alt="" width="100%"></div>
 	</div>
 	<div class="section 3">slide3</div>
 	<div class="section 4">slide4</div>
@@ -81,17 +126,32 @@
 		 				//loopTop:true,
 		 				loopBottom:true,
 		 				menu:true,
+		 				animateAnchor:false,
 		 				//continuousVertical:true,
 		 				paddingTop:"20px",
 		 				paddingBottom:"20px",
 		 				afterLoad:function(val,i){
 		 					
+
+		 					$(".test").animate({
+		 									marginTop:0+"%",
+		 										},1000,function(){
+		 											$(".text").animate({
+						 									
+						 									opacity:1,
+		 															},1000)		
+		 										})
+
 		 					$(".headimg").animate({
-		 									marginLeft:0+"%"
+		 									opacity:1
 		 										},1000)
-		 					$(".text").animate({
-		 									marginLeft:0+"%"
-		 										},2000)
+
+		 				$(".hello").animate({
+		 									opacity:1
+		 										},1000)
+
+
+		 					
 
 		 					console.log("当前是"+val+"第"+i+"屏")
 		 				},
@@ -105,6 +165,20 @@
 		 					
 		 				},
 		 				});
+
+		 var nowtime = new Date();
+		 var hello = ["早上好,很高兴见到你~~","下午好,xx","晚上好,第三代"];
+		 var nowhour = nowtime.getHours();
+		 console.log(nowhour)
+		 if( nowhour >= 6 && nowhour < 12 ){
+		 	$(".hello").text(hello[0])
+		 }
+		 else if (nowhour >= 12 &&nowhour < 18){
+		 	$(".hello").text(hello[1])
+		 }
+		 else{
+		 	$(".hello").text(hello[2])
+		 }
 	
 	})
 	//$("#fullpage .slide").click(function(){$.fn.fullpage.moveTo(2,2)})
