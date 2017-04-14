@@ -6,9 +6,14 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.css">
 	<style>
+		html{
+			font-family:"Microsoft YaHei",sans-serif;
+			font-size:20px;
+
+		}
 		.body{
 			font-family:"Microsoft YaHei",sans-serif;
-			font-size: 1.1em;
+			font-size:20px;
 
 		}
 		.section{
@@ -61,7 +66,7 @@
 		}
 		.hello{
 			color:#555;
-			font-size:2em;
+			font-size:2rem;
 			opacity:0;
 		}
 		.triangle{
@@ -73,6 +78,68 @@
 			border-style:solid;
 			transform:rotate(180deg);
 		}
+		.headimg .left{
+			
+			width:50%;
+			height:100%;
+			background: #eee;
+
+
+		}
+		.headimg .right{
+			margin-left: 50%;
+			margin-top: -100%;
+			width:50%;
+			height:100%;
+			background: #eee;
+			/*animation: opendoor 2s linear 2s forwards;*/
+			
+		}
+		/*@keyframes opendoor{
+			
+			33%{
+				transform:translateX(2rem);
+			}
+			66%{
+				transform:translateX(4rem);
+			}
+			100%{
+				transform:translateX(8rem);
+			}
+		}*/
+		//媒体查询
+		@media screen and (max-width: 1023px){
+		    html {
+		        font-size: 16px;
+		       
+		    }
+		}
+
+
+		@media screen and (min-width:1024px) and (max-width: 1500px){
+		    html {
+		        font-size: 16px;
+		     
+		    }
+		    .contact_box i{
+				display: none;
+			}
+		}
+
+		@media screen and (min-width:1501px) and (max-width: 2000px){
+		    html {
+		        font-size: 20px;
+		        
+		    }
+		}
+
+		@media screen and (min-width:2001px){
+		    html {
+		        font-size: 30px;
+		    
+		    }
+		}
+
 	</style>
 
 </head>
@@ -82,6 +149,8 @@
 	<div class="test">
 	<div class="headimg">
 		<!-- <img src="headimg.jpg" alt="" width="100%" />  -->
+		<div class="left"></div>
+		<div class="right"></div>
 	</div>
 	<div class="hello">早上好！很高兴见到你~~</div>
 	
@@ -179,7 +248,28 @@
 		 else{
 		 	$(".hello").text(hello[2])
 		 }
-	
+		//设置拉开屏幕
+		var dheight = $(".headimg").find(".left").height()
+		$(".headimg").find(".left").css({
+								borderRadius:dheight/2+"px" +" 0 0 "+dheight/2+"px",
+							
+								
+									})
+		$(".headimg").find(".right").css({
+								borderRadius:"0 "+dheight/2+"px" +" "+dheight/2+"px"+" 0",
+									})
+		$(".headimg").find(".left").animate({
+										marginLeft:-50+"%",
+										
+											},2000)
+		$(".headimg").find(".right").animate({
+										marginLeft:100+"%",
+										
+											},2000,function(){
+												$(".headimg").find(".right").css({display:"none"})
+												$(".headimg").find(".left").css({display:"none"})
+											})
+
 	})
 	//$("#fullpage .slide").click(function(){$.fn.fullpage.moveTo(2,2)})
 	
