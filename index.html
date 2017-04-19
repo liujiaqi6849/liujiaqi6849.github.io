@@ -6,6 +6,7 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.css">
 	<style>
+
 		html{
 			font-family:"Microsoft YaHei",sans-serif;
 			font-size:20px;
@@ -157,23 +158,31 @@
 			
 		}
 		.barage #baragetext{
-			position: absolute;
+			box-sizing: border-box;
+			font-size: 1rem;
 			color:#9e9e9e;
 			width:30rem;
-			line-height: 1.5rem;
-			bottom:-8%;
-			transform: translateX(-50%);
+			height: 3rem;
+			margin:0;
+			padding:0;
+			border-radius: 0.5rem;
+			box-shadow:2px 2px 4px #000;
+		
+			
 
 			
 		}
-			.barage #submitbtn{
-			position: absolute;
-			color:#9e9e9e;
-			
-			line-height: 1.5rem;
-			bottom:-8%;
-		/*	//transform: translateX(-50%);*/
-
+		.barage #submitbtn{
+			font-size: 1rem;
+			color:#fff;
+			box-sizing: border-box;
+			margin:0;
+			padding:0;
+			width:10rem;
+			height:3rem;
+			background:#22c3aa;
+			border-color:#22c3aa;
+			box-shadow:2px 2px 4px #000;
 			
 		}
 		
@@ -185,9 +194,29 @@
 <div id="fullpage">
 	<div class="section section1">
 	<div class="test">
-<!-- 弹幕 -->
+
+	
+	<!-- 头像 -->
+	<div class="headimg">
+		<!-- <img src="headimg.jpg" alt="" width="100%" />  -->
+		<div class="left"></div>
+		<div class="right"></div>
+	</div>
+	<!-- 文本 -->
+	<div class="hello">早上好！很高兴见到你~~</div>
+	
+	<audio style="display: block;margin:0 auto"src="http://sc1.111ttt.com/2015/1/01/16/94161509315.mp3" controls="controls">
+</audio>
+
+	<div class="text">
+	
+	<h1>刘嘉琪</h1>
+	<p>542471870@qq.com</p>
+	<p>求职：前端工程师</p>
+	
+	</div>
+	<!-- 弹幕 -->
 	<div class="barage">
-	<button>暂停</button>
 		<ul>
 			<li> (゜-゜)つロ -前方に高能，非战斗人员请后退~</li>
 			<li>66666666</li>
@@ -216,25 +245,6 @@
 		</ul>
 		<input type="text" id="baragetext" value="有句MMP，现在就要讲!!" />
 		<input type="submit" id="submitbtn" value="噗(/≧▽≦)/发射"/>
-	</div>
-<!-- 头像 -->
-	<div class="headimg">
-		<!-- <img src="headimg.jpg" alt="" width="100%" />  -->
-		<div class="left"></div>
-		<div class="right"></div>
-	</div>
-	<!-- 文本 -->
-	<div class="hello">早上好！很高兴见到你~~</div>
-	
-	<audio style="display: block;margin:0 auto"src="http://sc1.111ttt.com/2015/1/01/16/94161509315.mp3" controls="controls">
-</audio>
-
-	<div class="text">
-	
-	<h1>刘嘉琪</h1>
-	<p>542471870@qq.com</p>
-	<p>求职：前端工程师</p>
-	
 	</div>
 	</div>
 	</div>

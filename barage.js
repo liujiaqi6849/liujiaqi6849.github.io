@@ -5,7 +5,7 @@ var _this = this;
 this.ele = ele;
 this.items = this.ele.find("li");
 this.button = this.ele.find("button");
-this.text = this.ele.find("#baragetext")
+this.text = this.ele.find("#baragetext");
 this.setting = {
 		verticalmiddle:"full",
 		color:["#f6e658","red","blue"],
@@ -72,11 +72,18 @@ Barage.prototype = {
 		this.text.focus(function(){
 						prompttext = this.value;
 						this.value = " ";
+						$(this).css({color:"#000"})
 						});
 		this.text.blur(function(){
 						this.value = prompttext;
+						$(this).css({color:"#9e9e9e"})
 						})
 
+	},
+	setbutton:function(){
+
+
+		
 	}
 
 
