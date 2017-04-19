@@ -107,13 +107,9 @@
 				transform:translateX(8rem);
 			}
 		}*/
-<<<<<<< HEAD
 
 		/*媒体查询*/
 
-=======
-/* 		媒体查询 */
->>>>>>> origin/master
 		@media screen and (max-width: 1023px){
 		    html {
 		        font-size: 12px;
@@ -155,9 +151,29 @@
 		}
 		.barage ul li{
 			position: absolute;
-			width:900px;
-			left:100%;
+			width:50%;
+			left:0;
 			z-index:999;
+			
+		}
+		.barage #baragetext{
+			position: absolute;
+			color:#9e9e9e;
+			width:30rem;
+			line-height: 1.5rem;
+			bottom:-8%;
+			transform: translateX(-50%);
+
+			
+		}
+			.barage #submitbtn{
+			position: absolute;
+			color:#9e9e9e;
+			
+			line-height: 1.5rem;
+			bottom:-8%;
+		/*	//transform: translateX(-50%);*/
+
 			
 		}
 		
@@ -198,6 +214,8 @@
 			<li>大叔</li>
 
 		</ul>
+		<input type="text" id="baragetext" value="有句MMP，现在就要讲!!" />
+		<input type="submit" id="submitbtn" value="噗(/≧▽≦)/发射"/>
 	</div>
 <!-- 头像 -->
 	<div class="headimg">
@@ -234,13 +252,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.js"></script>
 	<script src="barage.js"></script>
-	<script>
-		$(function(){
-			$(".barage").Barage({
-				fontsize:"2rem",
-			});
-		})
-	</script>
+	
 <script>
 	$(function(){
 
@@ -338,5 +350,12 @@
 	//$("#fullpage .slide").click(function(){$.fn.fullpage.moveTo(2,2)})
 	
 </script>
+<script>
+		$(function(){
+			$(".barage").Barage({
+				fontsize:"1.5rem",
+			});
+		})
+	</script>
 </body>
 </html>

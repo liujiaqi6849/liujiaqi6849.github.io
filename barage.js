@@ -5,21 +5,25 @@ var _this = this;
 this.ele = ele;
 this.items = this.ele.find("li");
 this.button = this.ele.find("button");
+this.text = this.ele.find("#baragetext")
 this.setting = {
 		verticalmiddle:"full",
 		color:["#f6e658","red","blue"],
 		fontsize:16,
 		opacity:1,
+		speed:"7s",
 			}
 
 this.data = $.extend([],this.setting,userdata);
 
 this.setsetting();
 
- this.setscroll();
- this.button.on("click",function(){
- 	_this.items.each(function(){$(this).stop()})
- })
+this.setscroll();
+
+this.setinput();
+
+
+
 
 
 }
@@ -30,19 +34,20 @@ Barage.prototype = {
 	setsetting:function(){
 		var _this = this;
 		
-		var winheight = document.documentElement.clientHeight || document.body.clientHeight
+		var winwid = document.documentElement.clientWidth || document.body.clientWidth
 		
-		this.items.each(function(){
+		this.items.each(function(i,e){
 			//设置随机TOP
-			var randomtop = Math.floor(Math.random()*winheight)
+			var randomtop = Math.floor(Math.random()*9)*10
 			//设置随机颜色
 			var randomcolor = Math.floor(Math.random()*_this.data.color.length)
 			$(this).css({
 					fontSize:_this.data.fontsize,
 					color:_this.data.color[randomcolor],
 					opacity:_this.data.opacity,
-					left:120+"%",
-					top:randomtop+"px",
+					left:100+"%",
+					top:randomtop+"%",
+
 
 					})
 
@@ -50,17 +55,27 @@ Barage.prototype = {
 	},
 	setscroll:function(){
 		var _this = this;
+		var waittime = 0;
 		this.items.each(function(i,ele){
-			if(i===0){
-					$(this).animate({
-						left:-60+"%"
-							},8000,"linear")}
-			else{		
-					$(this).animate({
-						left:-i*20+"%"
-							},40000,"linear")
-				}
+					var wid = $(this).width()
+					$(this).css({
+						left:-wid+"px",
+						transition:"all "+_this.data.speed+ " linear "+ waittime +"s",
+							})
+				waittime += 0.5;
 		})
+
+	},
+	setinput:function(){
+		
+		var prompttext ="";
+		this.text.focus(function(){
+						prompttext = this.value;
+						this.value = " ";
+						});
+		this.text.blur(function(){
+						this.value = prompttext;
+						})
 
 	}
 
