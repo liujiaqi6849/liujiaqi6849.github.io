@@ -9,7 +9,7 @@ this.text = this.ele.find("input[type='text']");
 this.btn = this.ele.find("input[type='submit']");
 this.setting = {
 		verticalmiddle:"full",
-		color:["#f6e658","red","blue"],
+		color:["#ef5b9c","#f58f98","#f47920","#f58220","#a3cf62","#2a5caa","#45b97c","#00a6ac"],
 		fontsize:16,
 		opacity:1,
 		speed:"7s",
@@ -67,7 +67,9 @@ Barage.prototype = {
 					$(this).css({
 						left:-wid+"px",
 						transition:"all "+_this.data.speed+ " linear "+ waittime +"s",
+
 							})
+					
 				waittime += 0.5;
 		})
 
