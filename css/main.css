@@ -28,7 +28,7 @@
 			height:300px;	
 			border:8px solid #22c3aa;
 			border-radius: 150px;		
-			background: url('images/headimg.jpg') no-repeat ;
+			background: url('../images/headimg.jpg') no-repeat ;
 			background-size: 100%;
 			display: inline-block;
 			
