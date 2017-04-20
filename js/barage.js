@@ -49,10 +49,8 @@ Barage.prototype = {
 					fontSize:_this.data.fontsize,
 					whiteSpace:"nowrap",
 					zIndex:999,
-					position:"absolute",
 					color:_this.data.color[randomcolor],
-					opacity:_this.data.opacity,
-					left:100+"%",
+					opacity:_this.data.opacity,				
 					top:randomtop+"%",
 
 
@@ -77,8 +75,7 @@ Barage.prototype = {
 	setinput:function(){
 		var _this = this;
 		var whiteprompt = "┗|｀O′|┛填充弹药喂";
-	
-		var clickbutton = false;
+		var promptinit =_this.text.attr("placeholder");	
 		var lasttop = "";
 
 		
@@ -86,17 +83,17 @@ Barage.prototype = {
 
 		//焦点事件
 		_this.text.focus(function(){
-			 clickbutton = false;
-		
+		_this.text.attr("placeholder",promptinit)
+		$(this).css({color:"#000",textAlign:"left"})
 			if( this.value == whiteprompt){
 					this.value = "";
-					$(this).css({color:"#000",textAlign:"left"})
+					
 					}
 					});
 
 		//biu~~~发送弹幕
 		function sendbarage(){
-					clickbutton = true;
+					
 					//为空的情况
 					if(_this.text.val() === "" || _this.text.val() === whiteprompt){
 
@@ -104,7 +101,6 @@ Barage.prototype = {
 						
 						_this.text.css({
 									textAlign:"center",
-							
 						 				})
 					}
 					//发送弹幕
@@ -119,7 +115,16 @@ Barage.prototype = {
 					
 
 		}
-		_this.text.keypress(function(){if(event.keyCode == 13 ){sendbarage()}});
+		_this.text.keypress(function(){
+				if(event.keyCode == 13 ){sendbarage()}
+					else{
+						_this.text.css({
+									textAlign:"left",
+						 				})
+						_this.text.attr("placeholder",promptinit)
+				}
+			}
+		);
 
 
 		_this.btn.click(function(){sendbarage()})
@@ -149,7 +154,7 @@ Barage.prototype = {
 			lasttop = randomtop;
 			 wid = newele.width()
 			newele.css({
-					left:-wid+"px",
+					left:-wid+4+"px",
 					transition:"all "+_this.data.speed+ " linear " +"0s",
 						})
 

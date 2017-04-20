@@ -112,8 +112,8 @@
 			
 		}
 		.barage ul li{
-			
-		
+		position:absolute;
+		left:100%;
 			
 		}
 		.barage #baragetext{
