@@ -1,0 +1,182 @@
+		html{
+			font-family:"Microsoft YaHei",sans-serif;
+			font-size:20px;
+
+		}
+		.body{
+			font-family:"Microsoft YaHei",sans-serif;
+			font-size:20px;
+
+		}
+		.section{
+			background-color: #b6ddfc;
+	/*#00ff80*/
+		}
+		.leaving{
+			background-color:#f6e658;
+			/*#9f3*/
+		}
+		.section1{
+			/*background:url("images/bg2.jpg") no-repeat ;*/
+			background-size:100%;
+			text-align: center;
+			  
+		}
+		.headimg{
+			box-sizing: border-box;
+			width:300px;
+			height:300px;	
+			border:8px solid #22c3aa;
+			border-radius: 150px;		
+			background: url('images/headimg.jpg') no-repeat ;
+			background-size: 100%;
+			display: inline-block;
+			
+			opacity: 0
+
+		}
+		.test{
+			margin-top: -20%;
+
+		}
+		.text{
+			
+			background:linear-gradient(to left,#b6ddfc,#1c1b1c,#b6ddfc) no-repeat bottom/50% 2px;
+			opacity:0;
+			height:auto;
+			
+			
+		}
+		.text h1{
+			text-shadow:2px 2px #fff,3px 2px #eee;
+		}
+		.text::after{
+			content: "";
+			display:block;
+			height:1rem;
+
+		}
+		.hello{
+			color:#555;
+			font-size:1rem;
+			opacity:0;
+		}
+		.triangle{
+			display: inline-block;
+			width:0px;
+			height:0px;
+			border-width:0px 20px 20px 20px;
+			border-color: black transparent;
+			border-style:solid;
+			transform:rotate(180deg);
+		}
+		.headimg .left{
+			
+			width:50%;
+			height:100%;
+			background: #eee;
+
+
+		}
+		.headimg .right{
+			margin-left: 50%;
+			margin-top: -100%;
+			width:50%;
+			height:100%;
+			background: #eee;
+			/*animation: opendoor 2s linear 2s forwards;*/
+			
+		}
+		/*@keyframes opendoor{
+			
+			33%{
+				transform:translateX(2rem);
+			}
+			66%{
+				transform:translateX(4rem);
+			}
+			100%{
+				transform:translateX(8rem);
+			}
+		}*/
+
+
+		/*弹幕*/
+		.test{
+			position: relative;
+		}
+
+		.barage ul{
+			
+			list-style: none;
+			
+		}
+		.barage ul li{
+			
+		
+			
+		}
+		.barage #baragetext{
+			box-sizing: border-box;
+			font-size: 1rem;
+			color:#9e9e9e;
+			width:30rem;
+			height: 3rem;
+			margin:0;
+			padding:0;
+			border-radius: 0.5rem;
+			box-shadow:2px 2px 4px #000;
+		
+
+			
+		}
+		.barage #submitbtn{
+			font-size: 1rem;
+			color:#fff;
+			box-sizing: border-box;
+			margin:0;
+			padding:0;
+			width:10rem;
+			height:3rem;
+			background:#22c3aa;
+			border-color:#22c3aa;
+			box-shadow:2px 2px 4px #000;
+			
+		}
+		/*媒体查询*/
+
+		@media screen and (max-width: 1023px){
+		    html {
+		        font-size: 12px;
+		       
+		    }
+		    .barage #submitbtn{
+		    	width:7rem;
+		    }
+		    .barage #baragetext{
+		    	width:20rem;
+		    }
+		    
+		}
+
+		@media screen and (min-width:1024px) and (max-width: 1500px){
+		    html {
+		        font-size: 16px;
+		     
+		    }
+		  
+		}
+
+		@media screen and (min-width:1501px) and (max-width: 2000px){
+		    html {
+		        font-size: 20px;
+		        
+		    }
+		}
+
+		@media screen and (min-width:2001px){
+		    html {
+		        font-size: 30px;
+		    
+		    }
+		}

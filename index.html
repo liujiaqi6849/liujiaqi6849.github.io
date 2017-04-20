@@ -5,189 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.css">
-	<style>
-
-		html{
-			font-family:"Microsoft YaHei",sans-serif;
-			font-size:20px;
-
-		}
-		.body{
-			font-family:"Microsoft YaHei",sans-serif;
-			font-size:20px;
-
-		}
-		.section{
-			background-color: #b6ddfc;
-	/*#00ff80*/
-		}
-		.leaving{
-			background-color:#f6e658;
-			/*#9f3*/
-		}
-		.section1{
-			/*background:url("images/bg2.jpg") no-repeat ;*/
-			background-size:100%;
-			text-align: center;
-			  
-		}
-		.headimg{
-			box-sizing: border-box;
-			width:300px;
-			height:300px;	
-			border:8px solid #22c3aa;
-			border-radius: 150px;		
-			background: url('images/headimg.jpg') no-repeat ;
-			background-size: 100%;
-			display: inline-block;
-			
-			opacity: 0
-
-		}
-		.test{
-			margin-top: -20%;
-
-		}
-		.text{
-			
-			background:linear-gradient(to left,#b6ddfc,#1c1b1c,#b6ddfc) no-repeat bottom/50% 2px;
-			opacity:0;
-			height:auto;
-			
-			
-		}
-		.text h1{
-			text-shadow:2px 2px #fff,3px 2px #eee;
-		}
-		.text::after{
-			content: "";
-			display:block;
-			height:1rem;
-
-		}
-		.hello{
-			color:#555;
-			font-size:1rem;
-			opacity:0;
-		}
-		.triangle{
-			display: inline-block;
-			width:0px;
-			height:0px;
-			border-width:0px 20px 20px 20px;
-			border-color: black transparent;
-			border-style:solid;
-			transform:rotate(180deg);
-		}
-		.headimg .left{
-			
-			width:50%;
-			height:100%;
-			background: #eee;
-
-
-		}
-		.headimg .right{
-			margin-left: 50%;
-			margin-top: -100%;
-			width:50%;
-			height:100%;
-			background: #eee;
-			/*animation: opendoor 2s linear 2s forwards;*/
-			
-		}
-		/*@keyframes opendoor{
-			
-			33%{
-				transform:translateX(2rem);
-			}
-			66%{
-				transform:translateX(4rem);
-			}
-			100%{
-				transform:translateX(8rem);
-			}
-		}*/
-
-		/*媒体查询*/
-
-		@media screen and (max-width: 1023px){
-		    html {
-		        font-size: 12px;
-		       
-		    }
-		    
-		}
-
-		@media screen and (min-width:1024px) and (max-width: 1500px){
-		    html {
-		        font-size: 16px;
-		     
-		    }
-		  
-		}
-
-		@media screen and (min-width:1501px) and (max-width: 2000px){
-		    html {
-		        font-size: 20px;
-		        
-		    }
-		}
-
-		@media screen and (min-width:2001px){
-		    html {
-		        font-size: 30px;
-		    
-		    }
-		}
-		/*弹幕*/
-		.test{
-			position: relative;
-		}
-
-		.barage ul{
-			
-			list-style: none;
-			
-		}
-		.barage ul li{
-			position: absolute;
-			width:50%;
-			left:0;
-			z-index:999;
-			
-		}
-		.barage #baragetext{
-			box-sizing: border-box;
-			font-size: 1rem;
-			color:#9e9e9e;
-			width:30rem;
-			height: 3rem;
-			margin:0;
-			padding:0;
-			border-radius: 0.5rem;
-			box-shadow:2px 2px 4px #000;
-		
-			
-
-			
-		}
-		.barage #submitbtn{
-			font-size: 1rem;
-			color:#fff;
-			box-sizing: border-box;
-			margin:0;
-			padding:0;
-			width:10rem;
-			height:3rem;
-			background:#22c3aa;
-			border-color:#22c3aa;
-			box-shadow:2px 2px 4px #000;
-			
-		}
-		
-
-	</style>
+	<link rel="stylesheet" href="css/main.css">
+	
 
 </head>
 <body>
@@ -218,33 +37,35 @@
 	<!-- 弹幕 -->
 	<div class="barage">
 		<ul>
-			<li> (゜-゜)つロ -前方に高能，非战斗人员请后退~</li>
+			<li>(゜-゜)つロ -前方に高能，非战斗人员请后退~</li>
 			<li>66666666</li>
 			<li>辣鸡前端┗|｀O′|┛ 嗷~~</li>
-			<li>大苏打</li>
-			<li>dsd</li>
-			<li>dsd</li>
-			<li>大叔</li>
-			<li>大苏打</li>
-			<li>大苏打</li>
-			<li>大叔</li>
-			<li>大苏打</li>
-			<li>dsd</li>
-			<li>dsd</li>
-			<li>大叔</li>
+			<li>GGGGG</li>
+			<li>自学狗</li>
+			<li>求工作~~~</li>
+			<li>老司机带带我~~</li>
+			<li>你根本不是司机</li>
+			<li>嗷呜~~~</li>
 			<li>大苏打</li>
 			<li>大苏打</li>
-			<li>大叔</li><li>大苏打</li>
-			<li>dsd</li>
-			<li>dsd</li>
-			<li>大叔</li>
 			<li>大苏打</li>
 			<li>大苏打</li>
-			<li>大叔</li>
+			<li>大苏打</li>
+			<li>大苏打</li>
+			<li>大苏打</li>
+			<li>大苏打</li>
+			<li>大苏打</li>
+			<li>大苏打</li>
+			<li>大苏打</li>
+			<li>大苏打</li>
+			<li>大苏打</li>
+			<li>大苏打</li>
 
 		</ul>
-		<input type="text" id="baragetext" value="有句MMP，现在就要讲!!" />
+		
+		<input type="text" id="baragetext" placeholder="有句MMP，现在就要讲!!" />
 		<input type="submit" id="submitbtn" value="噗(/≧▽≦)/发射"/>
+		
 	</div>
 	</div>
 	</div>
@@ -260,10 +81,9 @@
 	<div class="section 4">slide4</div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.js"></script>
-	<script src="barage.js"></script>
-	
-<script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.js"></script>
+	<script src="js/barage.js"></script>
+	<script>
 	$(function(){
 
 		 $('#fullpage').fullpage({
@@ -291,8 +111,7 @@
 		 					$(".test").animate({
 		 									marginTop:0+"%",
 		 										},1000,function(){
-		 											$(".text").animate({
-						 									
+		 											$(".text").animate({	
 						 									opacity:1,
 		 															},1000)		
 		 										})
@@ -304,9 +123,7 @@
 		 				$(".hello").animate({
 		 									opacity:1
 		 										},1000)
-
-
-		 					
+			
 
 		 					console.log("当前是"+val+"第"+i+"屏")
 		 				},
@@ -321,7 +138,18 @@
 		 				},
 		 				});
 
-		 var nowtime = new Date();
+	})
+	//$("#fullpage .slide").click(function(){$.fn.fullpage.moveTo(2,2)})
+	
+</script>
+<script>
+		$(function(){
+//初始化弹幕
+			$(".barage").Barage({
+				fontsize:"1.5rem",
+			});
+//问候
+ var nowtime = new Date();
 		 var hello = ["早上好,很高兴见到你~~","下午好,xx","晚上好,第三代"];
 		 var nowhour = nowtime.getHours();
 		 console.log(nowhour)
@@ -356,16 +184,10 @@
 												$(".headimg").find(".left").css({display:"none"})
 											})
 
-	})
-	//$("#fullpage .slide").click(function(){$.fn.fullpage.moveTo(2,2)})
-	
-</script>
-<script>
-		$(function(){
-			$(".barage").Barage({
-				fontsize:"1.5rem",
-			});
 		})
 	</script>
+	
+
+
 </body>
 </html>
