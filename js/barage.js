@@ -154,7 +154,7 @@ Barage.prototype = {
 			lasttop = randomtop;
 			 wid = newele.width()
 			newele.css({
-					left:-wid+4+"px",
+					left:-wid-4+"px",
 					transition:"all "+_this.data.speed+ " linear " +"0s",
 						})
 
