@@ -8,18 +8,45 @@
 			font-size:20px;
 
 		}
+		h1{
+			text-shadow:2px 2px #fff,3px 2px #eee;		
+			position:relative;
+			display: inline-block;
+		}
+		h1::before{
+			content:"";
+			position:absolute;
+			top:50%;
+			left:-4rem;
+			height:0.2rem;
+			width:3rem;
+			background:#000; 
+			
+		}
+
+		h1::after{
+			content:"";
+			position:absolute;
+			top:50%;
+			right:-4rem;
+			height:0.2rem;
+			width:3rem;
+			background:#000; 
+		
+		}
+
 		.section{
 			background-color: #b6ddfc;
-	/*#00ff80*/
+			text-align: center;
 		}
 		.leaving{
 			background-color:#f6e658;
-			/*#9f3*/
+			
+			
 		}
 		.section1{
-			/*background:url("images/bg2.jpg") no-repeat ;*/
-			background-size:100%;
-			text-align: center;
+			
+			
 			  
 		}
 		.headimg{
@@ -35,41 +62,28 @@
 			opacity: 0
 
 		}
-		.test{
-			margin-top: -20%;
+		.container{
+			
 
 		}
-		.text{
+		.container p:last-of-type{
 			
 			background:linear-gradient(to left,#b6ddfc,#1c1b1c,#b6ddfc) no-repeat bottom/50% 2px;
-			opacity:0;
-			height:auto;
-			
 			
 		}
-		.text h1{
-			text-shadow:2px 2px #fff,3px 2px #eee;
-		}
-		.text::after{
-			content: "";
-			display:block;
-			height:1rem;
 
+		.container p::after{
+			    content: "";
+			    display: block;
+			    height: 1rem;
 		}
+	
 		.hello{
 			color:#555;
 			font-size:1rem;
 			opacity:0;
 		}
-		.triangle{
-			display: inline-block;
-			width:0px;
-			height:0px;
-			border-width:0px 20px 20px 20px;
-			border-color: black transparent;
-			border-style:solid;
-			transform:rotate(180deg);
-		}
+		
 		.headimg .left{
 			
 			width:50%;
@@ -102,7 +116,7 @@
 
 
 		/*弹幕*/
-		.test{
+		.container{
 			position: relative;
 		}
 
