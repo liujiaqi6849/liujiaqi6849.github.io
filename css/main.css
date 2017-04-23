@@ -51,10 +51,10 @@
 		}
 		.headimg{
 			box-sizing: border-box;
-			width:300px;
-			height:300px;	
-			border:8px solid #22c3aa;
-			border-radius: 150px;		
+			width:200px;
+			height:200px;	
+			border:6px solid #22c3aa;
+			border-radius: 100px;		
 			background: url('../images/headimg.jpg') no-repeat ;
 			background-size: 100%;
 			display: inline-block;
