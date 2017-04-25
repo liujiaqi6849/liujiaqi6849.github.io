@@ -68,6 +68,21 @@
 	<div class="slide" ><img src="images/2.jpg" alt="" width="100%"></div>
 	<div class="slide" ><img src="images/3.jpg" alt="" width="100%"></div>
 	<div class="slide" ><img src="images/4.jpg" alt="" width="100%"></div> -->
+	<div class="aboutme" style="height:20rem;overflow:hidden" >
+	<p>喜欢动漫，喜欢科幻魔幻类的电影，行尸走肉之类的美剧，超级有 想象力</p>
+<p>大三进入图形图像实验室，有着一双发现 美 的眼睛~有着不输别人的 耐心 和 细心度 ，做前端，我是认真哒！</p>
+		<!-- <p>姓名：刘嘉琪</p>
+		<p>年龄：24</p>
+		<p>14年大学本科毕业</p>
+		<p>专业：电子商务</p>
+		<p>Q:毕业后在干啥？</p>
+		<p>A:大学毕业后，在互联网行业从事了运营，市场方面的工作，积累了</p>
+		<p>Q:为什么选择转行前端</p>
+		<p>A:喜欢互联网，向往产品设计和开发，希望现在还不算太晚。</p> -->
+	</div>
+	<script>
+		
+	</script>
 	</div>
 	<div class="section section3">
 	<h1>项目经验(demo)</h1>
@@ -184,6 +199,22 @@
 											})
 
 		})
+
+
+		//about  me
+		var str = $(".aboutme").html();
+			console.log(str.substring(0,10))
+		$(".aboutme").html("");
+		var nowstr;
+		var nowi=0;
+		
+		var autoedi = setInterval(function(){
+			if(nowi > str.length) return clearInterval(autoedi);
+				nowstr = str.substring(0,nowi);
+				if(nowstr.charAt(nowstr.length-1) === "<"){nowstr = str.substring(0,nowi+2)}
+			$(".aboutme").html(nowstr+"|")
+			nowi++;
+		},200) 
 	</script>
 	
 
