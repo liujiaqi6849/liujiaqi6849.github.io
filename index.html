@@ -136,14 +136,14 @@
 	<script src="js/barage.js"></script>
 	<script>
 	$(function(){
-		var mobile =true;
+		var ismobile =true;
 		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-				mobile =false
+				ismobile =false
 }
 		 $('#fullpage').fullpage({
 		 				resize:true,
 		 				anchors:['page1','page2','page3','page4'],
-		 				navigation:true,
+		 				navigation:ismobile,
 		 				navigationPosition:"right",
 		 				//navigationTooltips:["第一","第二","第三","第四"],
 		 				showActiveTooltip :true,
@@ -159,7 +159,7 @@
 		 				//continuousVertical:true,
 		 				// paddingTop:"20px",
 		 				// paddingBottom:"20px",
-		 				autoScrolling:mobile,  //移动端就使用滚动条
+		 				autoScrolling:ismobile,  //移动端就使用滚动条
 		 				afterLoad:function(val,i){
 		 					
 		 					
