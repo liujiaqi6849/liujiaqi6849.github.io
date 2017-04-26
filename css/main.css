@@ -229,6 +229,34 @@
 			/*transform: scale(0.9);*/
 			animation: headup 1s;
 		}
+		.shiftbtn{
+			overflow: hidden;
+			margin-right: 20%;
+		}
+		.shiftbtn span{
+			
+			float:right;	
+			width:2rem;
+			height:2rem;
+			background: #eee;
+			
+			cursor: pointer;
+
+		}
+		.shiftbtn span:first-child{
+			
+			background: url("../images/shiftbtn2.jpg") no-repeat;
+			background-size: 100%;
+			border-radius:0 5px 5px 0;
+			
+		}
+		.shiftbtn span:last-child{
+			
+			background: url("../images/shiftbtn1.jpg") no-repeat;
+			background-size: 100%;
+			border-radius: 5px 0 0 5px;
+			
+		}
 		
 		.demo{
 			position: relative;

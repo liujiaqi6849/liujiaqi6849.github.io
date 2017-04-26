@@ -91,7 +91,10 @@
 	</div>
 	<div class="section section3">
 	<h1 class="title">小作品(demo)</h1>
+		<!-- 切换按钮 -->
+	<div class="shiftbtn"><span title="网格模式"></span><span title="列表模式"></span></div>
 	<div class="demo-content">
+
 	<a href="" class="demo">
 		<img src="images/demobg1.jpg" alt="" />
 		<div class="content" >
@@ -244,7 +247,19 @@
 
 		//about  me						
 	
-	
+	//切换按钮事件
+	$(".shiftbtn").find("span").each(function(i,ele){
+		$(this).click(function(){
+			if(i === 1){
+				$(".demo").removeClass("demo");
+				$(".demo-content").find("a").each(function(){$(this).addClass("demo_mobile")})
+			}
+			else{
+				$(".demo_mobile").removeClass("demo_mobile");
+				$(".demo-content").find("a").each(function(){$(this).addClass("demo")})
+			}
+		})
+	})
 
 	</script>
 	
