@@ -294,6 +294,31 @@
 			font-weight: normal;
 			color:#666;
 		}
+		/*移动端*/
+		   .demo_mobile{
+		    	display: block;
+		    	margin:2rem 3rem 0 3rem;
+		    }
+		   .demo_mobile img{
+		    	width:8rem;
+		    	height:8rem;
+		    	float:left;
+
+		    }
+		    .demo_mobile .content{
+				padding: 0 1rem;
+				text-align: left;
+				overflow: hidden;
+		    }
+		   .demo_mobile .content .tip{
+			
+			width:5rem;
+			height:2rem;
+			background: #00b271;
+			line-height: 2rem;
+			text-align: center;
+			color:#fff;
+		}
 		/*媒体查询*/
 
 		@media screen and (max-width: 1023px){
@@ -310,6 +335,8 @@
 		    .col{
 		    	margin:2rem 1rem 0rem 1rem;
 		    }
+
+
 		}
 
 		@media screen and (min-width:1024px) and (max-width: 1500px){
