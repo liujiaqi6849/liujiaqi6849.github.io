@@ -21,7 +21,7 @@
 	</div>
 	<!-- 文本 -->
 	<p class="hello">早上好！很高兴见到你~~</p>
-	<h1>刘嘉琪</h1>
+	<h1 class="title">刘嘉琪</h1>
 	<p>542471870@qq.com</p>
 	<p>求职：前端工程师</p>
 	<audio style="display: block;margin:0 auto"src="http://sc1.111ttt.com/2015/1/01/16/94161509315.mp3" controls="controls">
@@ -63,7 +63,7 @@
 	</div>
 	</div>
 	<div class="section section2"> 
-	<h1>关于我</h1>
+	<h1 class="title">关于我</h1>
 	<!-- <div class="slide" ><img src="images/1.jpg" alt="" width="100%"></div>
 	<div class="slide" ><img src="images/2.jpg" alt="" width="100%"></div>
 	<div class="slide" ><img src="images/3.jpg" alt="" width="100%"></div>
@@ -71,15 +71,16 @@
 	<div class="aboutme"  >
 
 	<div class="row">
-		<div class="col"><div class="bgimg1"></div><h4>年龄/24</h4></div>
-		<div class="col"><div class="bgimg2"></div><h4>本科/电子商务</h4></div>
-		<div class="col"><div class="bgimg3"></div><h4>性别/男</h4></div>
+		<div class="col"><div class="imgcon"><img src="images/abbg1.png" alt=""></div><h4>年龄/24</h4></div>
+		<div class="col"><div class="imgcon"><img src="images/abbg2.png" alt=""></div><h4>本科/电子商务</h4></div>
+		<div class="col"><div class="imgcon"><img src="images/abbg3.png" alt=""></div><h4>性别/男</h4></div>
 	</div>
 	<p>Hi ! 我是刘嘉琪。</p>
 	<p>今年24岁，2014年电子商务专业本科毕业。</p>
 	<p>毕业后迷迷茫茫，一直在从事互联网运营和市场方面的工作.</p>
 	<p>希望能摆脱迷茫的状态</p>
-
+	<p>目前自学5月有余，深知这行闭门造车是不行的</p>
+	<p>希望能得到一个能够快速成长的机会和岗位</p>
 
 
 		
@@ -89,13 +90,45 @@
 	</script>
 	</div>
 	<div class="section section3">
-	<h1>项目经验(demo)</h1>
+	<h1 class="title">小作品(demo)</h1>
+	<div class="demo-content">
+	<a href="" class="demo">
+		<img src="images/demobg1.jpg" alt="" />
+		<div class="content" >
+			<div class="tip">静态页面</div>
+			<h1>PSD转HTML</h1>
+			<h2>主要应用了html+css技术</h2>
+			<p>刚学完HTML+CSS那会，找了几张PSD图，实现从PSD设计图到HTML的转换，对定位，居中，浮动等知识有了新的认识.</p>
+		</div>
+	</a>
+	<a href="" class="demo">
+		<img src="images/demobg2.jpg" alt="" />
+		<div class="content" >
+			<div class="tip">静态页面</div>
+			<h1>PSD转HTML</h1>
+			<h2>主要应用了html+css技术</h2>
+			<p>刚学完HTML+CSS那会，找了几张PSD图，实现从PSD设计图到HTML的转换，对定位，居中，浮动等知识有了新的认识.</p>
+		</div>
+	</a>
+
+	<a href="" class="demo">
+		<img src="images/demobg3.jpg" alt="" />
+		<div class="content" >
+			<div class="tip">静态页面</div>
+			<h1>PSD转HTML</h1>
+			<h2>主要应用了html+css技术</h2>
+			<p>刚学完HTML+CSS那会，找了几张PSD图，实现从PSD设计图到HTML的转换，对定位，居中，浮动等知识有了新的认识.</p>
+		</div>
+	</a>
+
+
+	</div>
 	</div>
 	<div class="section section4">
-	<h1>技能</h1>
+	<h1 class="title">技能</h1>
 	</div>
 	<div class="section section5">
-	<h1>联系我</h1>
+	<h1 class="title">联系我</h1>
 	</div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
@@ -103,13 +136,16 @@
 	<script src="js/barage.js"></script>
 	<script>
 	$(function(){
-
+		var mobile =true;
+		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				mobile =false
+}
 		 $('#fullpage').fullpage({
 		 				resize:true,
 		 				anchors:['page1','page2','page3','page4'],
 		 				navigation:true,
 		 				navigationPosition:"right",
-		 				navigationTooltips:["第一","第二","第三","第四"],
+		 				//navigationTooltips:["第一","第二","第三","第四"],
 		 				showActiveTooltip :true,
 		 				slidesNavigation:true,
 		 				//sectionsColor:['#0075D1', '#C2E5FF', '#FDF6E1', '#E9E9E9'],
@@ -121,8 +157,9 @@
 		 				menu:true,
 		 				animateAnchor:false,
 		 				//continuousVertical:true,
-		 				paddingTop:"20px",
-		 				paddingBottom:"20px",
+		 				// paddingTop:"20px",
+		 				// paddingBottom:"20px",
+		 				autoScrolling:mobile,  //移动端就使用滚动条
 		 				afterLoad:function(val,i){
 		 					
 		 					
