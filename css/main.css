@@ -3,6 +3,7 @@
 			font-size:20px;
 
 		}
+
 		.body{
 			font-family:"Microsoft YaHei",sans-serif;
 			font-size:20px;
@@ -104,10 +105,7 @@
 			
 			
 		}
-		.container{
-			
-
-		}
+		
 		.container p:last-of-type{
 			
 			background:linear-gradient(to left,#b6ddfc,#1c1b1c,#b6ddfc) no-repeat bottom/50% 2px;
@@ -320,6 +318,41 @@
 		.content p{
 			font-size: 0.9rem;
 			font-weight: normal;
+			color:#666;
+		}
+		/*.skill{
+			width:80%;
+			text-align: left;
+			margin:0 auto;
+			
+		}
+		.skill img{
+			float:left;
+		}
+		.skill .skillcontent{
+			overflow: hidden;
+		}
+		.skill .skillcontent p{
+			color:#666;
+		}*/
+		.skill{
+			display: flex;
+			width:80%;
+			
+			justify-content:flex-start;
+			margin:2.5rem auto;
+			
+		}
+		.skill img{
+			width:100px;
+			height:100px;
+		}
+		.skill .skillcontent{
+			text-align: left;
+			margin-left: 1.5rem;
+		}
+		.skill .skillcontent li{
+			font-size: 1.1rem;
 			color:#666;
 		}
 		/*移动端*/
