@@ -227,12 +227,11 @@
 		 					console.log("当前是"+val+"第"+i+"屏")
 		 				},
 		 				onLeave:function(now,next,d){
-		 						console.log("next "+next)
-		 					console.log("now "+now)
-
+		 					
+		 						if(ismobile){
 		 						$('.section').eq(now-1).addClass("leaving");
 		 						$('.section').eq(next-1).removeClass("leaving");
-		 						
+		 						}
 		 					
 		 				},
 		 				});
