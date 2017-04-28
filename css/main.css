@@ -62,9 +62,10 @@
 			background: url('../images/headimg.jpg') no-repeat ;
 			background-size: 100%;
 			display: inline-block;
-			animation: headup 1s 2s;
+			animation: headup 1s 4s;
 
 		}
+
 		.headimg:hover{
 			transform: scale(1.1);
 			
@@ -124,22 +125,85 @@
 		}
 		
 		.headimg .left{
-			
-			width:50%;
-			height:100%;
-			background: #eee;
-
-
+			box-sizing: border-box;
+			width:94px;
+			height:188px;
+			background:#CDDC39;/* #8BC34A;*/
+			border-radius: 94px 0 0 94px; 
+			transform-origin: right center;
+			transform: rotate(0deg);
+			animation: opendoor1 4s forwards;
 		}
 		.headimg .right{
+			box-sizing: border-box;
 			margin-left: 50%;
 			margin-top: -100%;
-			width:50%;
-			height:100%;
-			background: #eee;
-			/*animation: opendoor 2s linear 2s forwards;*/
+			width:94px;
+			height:188px;
+			background:#CDDC39;
+			border-radius: 0 94px 94px 0; 
+			transform-origin: left center;
+			transform: rotate(0deg);
+			animation: opendoor2 4s forwards;
 			
 		}
+		@keyframes opendoor1{
+			
+			15%{
+				transform: rotate(360deg);
+				margin-left: 0%;
+			}
+			30%{
+				transform: rotate(0deg);
+				margin-left: 0%;
+			}
+			45%{
+				transform: rotate(360deg);
+				margin-left: 0%;
+			}
+			60%{
+				margin-left: 0%;
+				transform: rotate(0deg);
+			}
+			75%{
+				margin-left: -30%;
+				transform: rotate(0deg);
+			}
+			100%{
+				margin-left: -50%;
+				transform: rotate(0deg);
+			}
+		}
+			@keyframes opendoor2{
+			
+			15%{
+				transform: rotate(360deg);
+				margin-left: 50%;
+			}
+			30%{
+				transform: rotate(0deg);
+				margin-left: 50%;
+			}
+			45%{
+				transform: rotate(360deg);
+				margin-left:50%;
+			}
+			60%{
+				margin-left: 50%;
+				transform: rotate(0deg)
+			}
+
+			75%{
+				margin-left: 80%;
+				transform: rotate(0deg)
+			}
+			100%{
+				margin-left: 100%;
+				transform: rotate(0deg)
+			}
+		}
+
+
 		/*@keyframes opendoor{
 			
 			33%{
@@ -384,9 +448,15 @@
 			vertical-align: middle;
 		}
 		.section5 a{
-			
-			font-size: 3rem;
-			color:#202221;
+			display: inline-block;
+			line-height: 3.3rem;
+			width:10rem;
+			height:3.3rem;
+			background:#5cb85c;
+			border-radius:0.8rem;
+			font-size: 1.3rem;
+			color:#fff;
+			animation: addrrun 2s 3s infinite;
 		}
 
 		@keyframes addrrun{
@@ -400,6 +470,7 @@
 				transform: scale(1);
 			}
 		}
+
 
 		/*移动端*/
 		   .demo_mobile{

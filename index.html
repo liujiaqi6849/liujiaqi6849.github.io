@@ -16,8 +16,9 @@
 	<!-- 头像 -->
 	<div class="headimg">
 		
-		<div class="left"></div>
-		<div class="right"></div>
+		<div class="left"><img src="images/headleft.png" alt=""></div>
+		<div class="right"><img src="images/headright.png" alt=""></div>
+
 	</div>
 	<!-- 文本 -->
 	<p class="hello">早上好！很高兴见到你~~</p>
@@ -219,12 +220,12 @@
 		 				autoScrolling:ismobile,  //移动端就使用滚动条
 		 				afterLoad:function(val,i){
 		 					
-		 				
+		 				if(i === 5){
 		 					$(".contact").find("li").each(function(i,ele){
 		 						$(this).css({
 		 								animation:"addrrun 1s "+(i*1)+"s",
 		 									})
-		 					})
+		 					})}
 		 					
 							
 		 			
@@ -264,27 +265,41 @@
 		 else{
 		 	$(".aboutme").find("span").text(hello[2])
 		 }
+		 //监听拉开头像的CSS3动画事件
+		 $(".headimg").find("div").each(function(){
+
+		 	$(this).on("webkitAnimationEnd",function(){
+		 		$(this).css({display:"none"})
+		 	})
+		 })
+
 		//设置拉开屏幕
-		var dheight = $(".headimg").find(".left").height()
-		$(".headimg").find(".left").css({
-								borderRadius:dheight/2+"px" +" 0 0 "+dheight/2+"px",
-							
-								
-									})
-		$(".headimg").find(".right").css({
-								borderRadius:"0 "+dheight/2+"px" +" "+dheight/2+"px"+" 0",
-									})
-		$(".headimg").find(".left").animate({
-										marginLeft:-50+"%",
+		// var dheight = $(".headimg").find(".left").height()
+
+		// $(".headimg").find("div").each(function(){
+		// 	$(this).animate({
+		// 			transform:"rotate(0deg)"
+		// 				},2000,function(){
+
+		// 				})
+
+		// })
+	
+		// $(".headimg").find(".left").animate({
+		// 								transform:"rotate(0deg)",
 										
-											},2000)
-		$(".headimg").find(".right").animate({
-										marginLeft:100+"%",
+		// 									},2000)
+		// $(".headimg").find(".left").animate({
+		// 								marginLeft:-50+"%",
 										
-											},2000,function(){
-												$(".headimg").find(".right").css({display:"none"})
-												$(".headimg").find(".left").css({display:"none"})
-											})
+		// 									},2000)
+		// $(".headimg").find(".right").animate({
+		// 								marginLeft:100+"%",
+									
+		// 									},2000,function(){
+		// 										$(".headimg").find(".right").css({display:"none"})
+		// 										$(".headimg").find(".left").css({display:"none"})
+		// 									})
 
 		})
 
