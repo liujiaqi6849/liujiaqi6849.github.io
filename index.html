@@ -35,7 +35,7 @@
 			<li>66666666</li>
 			<li>辣鸡前端┗|｀O′|┛ 嗷~~</li>
 			<li>GGGGG</li>
-			<li>自学狗</li>
+			<li>转行自学狗</li>
 			<li>求工作~~~</li>
 			<li>老司机带带我~~</li>
 			<li>你根本不是司机</li>
@@ -134,8 +134,9 @@
 		<div class="skillcontent">
 		<h3>HTML</h3>
 		<ul>
-			<li>熟练HTML/XHTML标记语言,理解web标准。</li>
-			<li>熟悉盒模型和各类布局方式、能够根据设计图实现页面布局和交互效果。</li>
+			<li>熟练HTML/XHTML标记语言,理解web标准；</li>
+			<li>熟悉盒模型和基本的布局方式、能够根据设计图实现页面布局和交互效果；</li>
+			<li>熟练操作PS，将PSD图转成HTML；</li>
 		</ul>
 		
 	
@@ -147,8 +148,9 @@
 		<div class="skillcontent">
 		<h3>CSS</h3>
 		<ul>
-			<li>熟悉原生js、jquery框架及相关插件，能实现常见的动画、基本的交互。</li>
-			<li>了解面向对象编程，能制作简单的插件。</li>
+			<li>掌握CSS定位，浮动，居中等基础知识；</li>
+			<li>熟悉CSS3，并能制作相应的动画效果；</li>
+			<li>了解响应式和 flex 布局;</li>
 		</ul>
 		</div>
 		
@@ -159,8 +161,9 @@
 		<div class="skillcontent">
 		<h3>JavaScript</h3>
 		<ul>
-			<li>熟悉原生js、jquery框架及相关插件，能实现常见的动画、基本的交互。</li>
-			<li>了解面向对象编程，能制作简单的插件。</li>
+			<li>熟悉原生js、jquery框架及相关插件，能实现常见的动画、基本的交互；</li>
+			<li>了解面向对象编程，能制作简单的插件；</li>
+			<li>对闭包，原型，作用域有一定的了解；</li>
 		</ul>
 		
 		</div>
@@ -173,6 +176,13 @@
 	</div>
 	<div class="section section5">
 	<h1 class="title">联系我</h1>
+	<ul class="contact">
+		<li><span><img src="images/contact1.png" alt=""></span><p>手机：15001823515</p></li>
+		<li><span><img src="images/contact2.png" alt=""></span><p>邮箱：542471870@qq.com</p></li>
+		<li><span><img src="images/contact3.png" alt=""></span><p>wechat：liujiqi6849</p></li>
+	</ul>
+	
+	<a href="">下载简历</a>
 	</div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
@@ -189,7 +199,7 @@
 }
 		 $('#fullpage').fullpage({
 		 				resize:true,
-		 				anchors:['page1','page2','page3','page4'],
+		 				anchors:['page1','page2','page3','page4','page5'],
 		 				navigation:ismobile,
 		 				navigationPosition:"right",
 		 				//navigationTooltips:["第一","第二","第三","第四"],
@@ -209,22 +219,16 @@
 		 				autoScrolling:ismobile,  //移动端就使用滚动条
 		 				afterLoad:function(val,i){
 		 					
-		 					
-		 					$(".test").animate({
-		 									marginTop:0+"%",
-		 										},1000,function(){
-		 											$(".text").animate({	
-						 									opacity:1,
-		 															},1000)		
-		 										})
-
-		 					$(".headimg").animate({
-		 									opacity:1
-		 										},1000)
+		 				
+		 					$(".contact").find("li").each(function(i,ele){
+		 						$(this).css({
+		 								animation:"addrrun 1s "+(i*1)+"s",
+		 									})
+		 					})
 		 					
 							
 		 			
-		 					console.log("当前是"+val+"第"+i+"屏")
+		 					
 		 				},
 		 				onLeave:function(now,next,d){
 		 					

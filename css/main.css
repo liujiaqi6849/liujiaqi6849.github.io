@@ -62,13 +62,13 @@
 			background: url('../images/headimg.jpg') no-repeat ;
 			background-size: 100%;
 			display: inline-block;
-			opacity: 0
+			animation: headup 1s 2s;
 
 		}
 		.headimg:hover{
+			transform: scale(1.1);
 			
-		
-			animation: headup 1s;
+			
 		}
 		@keyframes headup{
 			10%{
@@ -355,6 +355,52 @@
 			font-size: 1.1rem;
 			color:#666;
 		}
+		.contact{
+			display: flex;
+			width:50%;
+			list-style: none;
+			margin:4rem auto;
+			padding: 0;
+			justify-content: space-around;
+		}
+		.contact span:hover{
+			animation: headup 1s;
+		}
+		.contact span{
+			display: inline-block;
+			box-sizing: border-box;
+			width:64px;
+			height:64px;
+			border-radius:32px;
+			background: #fff;
+			line-height: 64px;
+			
+			
+		}
+		.contact img{
+			
+			width:80%;
+			height:80%;
+			vertical-align: middle;
+		}
+		.section5 a{
+			
+			font-size: 3rem;
+			color:#202221;
+		}
+
+		@keyframes addrrun{
+			0%{
+				transform: scale(1);
+			}
+			50%{
+				transform: scale(1.3);
+			}
+			100%{
+				transform: scale(1);
+			}
+		}
+
 		/*移动端*/
 		   .demo_mobile{
 		    	display: block;
