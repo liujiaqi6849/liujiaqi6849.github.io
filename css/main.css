@@ -22,7 +22,7 @@
 			position:absolute;
 			top:50%;
 			left:-4rem;
-			height:0.2rem;
+			height:0.1rem;
 			width:3rem;
 			background:#000; 
 			
@@ -33,7 +33,7 @@
 			position:absolute;
 			top:50%;
 			right:-4rem;
-			height:0.2rem;
+			height:0.1rem;
 			width:3rem;
 			background:#000; 
 		
@@ -513,7 +513,11 @@
 		    .col{
 		    	margin:2rem 1rem 0rem 1rem;
 		    }
-
+			.contact{
+			
+			width:100%;
+			
+		}
 
 		}
 
