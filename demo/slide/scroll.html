@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动轮播</title>
+	<style>
+		#container{
+
+			width:800px;
+			height:500px;
+			border:1px solid;
+			margin:150px auto;
+			position: relative;
+			overflow: hidden;
+			
+		}
+		#item{
+			width:5600px;
+			position:absolute;
+			left:0;
+			z-index:1;
+		
+		}
+		#item img{
+
+			width:800px;
+			height:500px;
+			float:left;
+		}
+		
+
+		#s_left{
+			position:absolute;
+			top:35%;
+			left:0%;
+			width:100px;
+			height:200px;
+			opacity: 0.3;
+			z-index:2;
+			background: url("left.png") no-repeat center black;;
+		}
+		#s_right{
+			position:absolute;
+			top:35%;
+			right:0%;
+			width:100px;
+			height:200px;
+			opacity: 0.3;
+			z-index:2;
+			background: url("right.png") no-repeat center black;
+		}
+		#s_left:hover{
+			opacity: 0.6;
+
+		}
+		#s_right:hover{
+			opacity: 0.6;
+
+		}
+	#focusdot{
+
+		position:absolute;
+		top:90%;
+		left:36%;
+		list-style: none;
+		z-index:2;
+		
+	}
+	#focusdot li{
+		
+		display: inline-block;
+		margin-left: 6px;
+		width:16px;
+		height:16px;
+		background-color: white;
+		border-radius: 8px;
+	
+	}
+	#focusdot .ondot{
+
+		background-color:#408ed6;
+
+	}
+	</style>
+
+<script>
+	window.onload=function(){
+
+		//获取变量
+		var container=document.getElementById("container");
+		var list=document.getElementById("item");
+		var buttons=document.getElementById("focusdot").getElementsByTagName("li");
+		var next=document.getElementById("s_right");
+		var prev=document.getElementById("s_left");
+		var index=0;
+		var lastnum;
+		var nowdistance=0;
+		var nodoing = true;
+		
+		
+
+		function showbutton(){
+
+			for(var i=0;i<buttons.length;i++){
+
+				if(buttons[i].className ==="ondot"){
+
+					buttons[i].className ="";
+					lastnum = i;
+					break;
+				}
+
+			}
+			
+			buttons[index].className = "ondot"
+		}
+
+
+		//动画事件
+		function animate(distance){
+			 		
+			var time=400   //动画总世间	
+			var wait=10     //每次动画等待时间
+			var speed=distance/(time/wait)   //每次动画的距离
+			var interval=Math.abs(distance);
+			
+			function go(){
+			
+					if( nowdistance < interval){
+
+					list.style.left = parseInt(list.style.left) + speed + "px";
+					nowdistance += Math.abs(speed);             
+				}
+			else{
+
+				list.style.left = (-index-1)*800 +"px";
+				nodoing=true;
+				nowdistance=0;
+				clearInterval(move)
+				};
+	 		}
+
+	 		var move=setInterval(go,wait)
+			
+			}
+
+		next.onclick=function(){
+			
+			if(nodoing){
+			nodoing = false;
+			index+=1;
+			if(index === 4){index = 0};
+			showbutton();
+			animate(-800)
+			
+			}
+		
+
+		}
+		prev.onclick=function(){
+			
+			if(nodoing){
+			nodoing = false;
+			index-=1;
+			if(index === -1){index = 3};
+			showbutton()
+			animate(800)
+			}
+		
+		}
+		function sethotbot(){
+			for(let i = 0;i<buttons.length;i++){
+				buttons[i].onmouseover=function(){
+					index = i;
+					showbutton()
+					if(nodoing){
+					nodoing = false;
+					
+					animate((lastnum-i)*800)
+				}
+
+				}
+			}
+			
+
+		}
+
+		sethotbot()
+	
+		function auto(){
+			
+			if(nodoing){
+			nodoing = false;
+			index+=1;
+			if(index === 4){index = 0};
+			showbutton();
+			animate(-800)
+			
+			}
+
+		}
+		setInterval(auto,3000)
+	}
+
+
+
+
+</script>
+
+</head>
+<body>
+	
+	<div id="container">
+		<div id="item" style="left:-800px">
+			<img src="4.jpg" alt="" />
+			<img src="1.jpg" alt="" />
+			<img src="2.jpg" alt="" />
+			<img src="3.jpg" alt="" />
+			<img src="4.jpg" alt="" />
+			<img src="1.jpg" alt="" />
+		</div> 
+		<a href="javascript:;" id="s_left" ></a>
+		<a href="javascript:;" id="s_right"></a>
+		<ul id="focusdot">
+			<li class="ondot"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div> 
+	</body>	
+
+
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fadein and out </title>
+	<style>
+		*{
+			margin:0;
+			padding: 0;
+		}
+		#container{
+
+			width:500px;
+			height:300px;
+			border: 2px solid pink;
+			margin:50px auto;
+			position: relative;
+		}
+		ul{
+			list-style: none;
+
+		}
+		#item{
+
+			z-index: 1;
+		}
+		#item li{
+
+			opacity: 0;
+		}
+		#item li:first-child{
+
+			opacity: 1;
+		}
+
+		
+		#item img{
+
+			width:500px;
+			height:300px;
+		}
+	
+		#focusdot{
+			
+			position: absolute;
+			bottom:10px;
+			right:10px;
+			z-index:2 
+		}
+		#focusdot li{
+
+			display: inline-block;
+			width:50px;
+			height:20px;
+			background-color: #fff
+
+			
+		}
+		#focusdot .ondot{
+
+			background-color: #408ed6
+		}
+	 	#next{
+
+	 		position: absolute;
+	 		top:40%;
+	 		right:0;
+	 		width:50px;
+	 		height:100px;
+	 		z-index: 2;
+	 		background:url(right.png)  black;
+	 		opacity: 0.6;
+	 	}
+	 	#prev{
+
+	 		position: absolute;
+	 		top:40%;
+	 		left:0;
+	 		width:50px;
+	 		height:100px;
+	 		z-index: 2;
+	 		background:url(left.png) black ;
+	 		opacity: 0.6
+	 	}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<ul id="item">
+			<li ><img src="1.jpg" alt=""></li>
+			<li ><img src="2.jpg" alt=""></li>
+			<li ><img src="3.jpg" alt=""></li>
+			<li ><img src="4.jpg" alt=""></li>
+		</ul>
+		<a href="javascript:" id="next"></a>
+		<a href="javascript:" id="prev"></a>
+		<ul id="focusdot">
+			<li class="ondot"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+
+<script>
+	window.onload=function(){
+
+		var focus=document.getElementById("focusdot").getElementsByTagName("li");
+		var nextdot=document.getElementById("next");
+		var prevdot=document.getElementById("prev");
+		var item=document.getElementById("item").getElementsByTagName("li")
+		var index=0;
+		//小图切换事件
+		function showbutton(){
+
+			for(var i = 0; i < focus.length;i++){
+
+				if(focus[i].className == "ondot"){
+
+
+				focus[i].className = "";
+					break;
+				}
+			}
+				focus[index].className = "ondot";
+
+		};
+
+		//左右箭头事件
+		nextdot.onclick=function(){
+
+			index += 1 ;
+			if(index > 3){index =0};
+			showbutton();
+			animate()
+
+		}
+		prevdot.onclick=function(){
+
+			index -= 1 ;
+			if(index < 0){index = 3};
+			showbutton();
+			animate()
+
+		}
+
+		//动画事件
+
+		function animate(){
+
+			var time=1000;  //总时间
+			var wait=10;    //间隔时间
+			var speed = 1/(time/wait);
+			for(var i =0;i<item.length;i++){
+
+				item[i].style.display="none";
+				item[i].style.opacity=0;
+			}
+
+			item[index].style.display="block";
+			
+
+		
+			function inmove(){
+
+					if( item[index].style.opacity < 1){
+
+						item[index].style.opacity =  parseFloat(item[index].style.opacity) + speed;
+						
+					}
+					else{
+
+						item[index].style.opacity = 1
+						clearInterval(mm)
+					}
+			}
+
+		
+			var mm=setInterval(inmove,wait)
+
+		}
+
+		//绑定focusdot事件
+		for(var i = 0;i < focus.length;i++){
+
+			(function(i){
+			focus[i].onmouseover=function(){
+				if(this.className === "ondot") return false;
+				index=i
+				showbutton()
+				animate()
+			}})(i)
+		}
+
+
+		//自动播放
+
+		function auto(){
+			index++;
+			if(!item[index]){index=index>0 ? 0 : 3 }
+			showbutton()
+			animate()
+
+		}
+		var autoimg=setInterval(auto,3000)
+	}
+
+</script>
+
+</body>
+</html>
