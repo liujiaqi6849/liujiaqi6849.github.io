@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+	
+	#clock{
+		border:solid 2px #eee;
+
+		
+	}
+</style>
+</head>
+<body>
+	
+	<canvas id="clock" height="300" width="300" style="display:block;margin:80px auto">你的浏览器不支持</canvas>
+	
+	<script>
+		var clock = document.getElementById("clock");
+		var ctx = clock.getContext('2d');
+		
+		var width = ctx.canvas.width;
+		var height = ctx.canvas.height;
+		var r = width/2;
+		var scale = width /200;
+		//定义背景
+		function drawbackground(){
+
+		//背景圆	
+		ctx.beginPath()
+		ctx.arc(width/2,height/2,r,0,2*Math.PI)
+		ctx.strokeStyle = "#cddc39"
+		ctx.closePath()
+		ctx.lineWidth = r/60 * scale
+		ctx.stroke()
+	
+		
+		
+		ctx.textAlign = "center"
+		ctx.textBaseline = "middle"
+		
+	
+		//画小时的数字
+		
+			for(var i =0;i<12;i++){
+			ctx.beginPath()
+			ctx.fillStyle ="#673ab7"
+			ctx.font = (r/12)*scale+"px  Arial";
+			var rad = 2*Math.PI / 12 *i
+			//通过sin cos确定位置
+			var x = Math.cos(rad)*(r-18*scale)+r
+			var y = Math.sin(rad)*(r-18*scale)+r
+			if(i<10){ctx.fillText(i+3,x,y)}
+				else{ctx.fillText(i-9,x,y)}
+			
+			ctx.closePath()
+			
+			ctx.fill()	
+		}
+		//画秒钟圆点
+			for(var i =0;i<60;i++){
+			ctx.beginPath()
+			ctx.strokeStyle = "#4caf50"
+			var rad = 2*Math.PI / 60 *i
+			var x = Math.cos(rad)*(r-8*scale)+r
+			var y = Math.sin(rad)*(r-8*scale)+r
+			ctx.arc(x,y,0.5*scale,0,2*Math.PI)
+			
+			ctx.closePath()
+			ctx.stroke()
+		}
+		//画小时的圆点
+		for(var i =0;i<12;i++){
+			ctx.beginPath()
+		
+			//ctx.fillStyle ="#00bcd4"
+			var rad = 2*Math.PI / 12 *i
+			var x = Math.cos(rad)*(r-8*scale)+r
+			var y = Math.sin(rad)*(r-8*scale)+r
+			//ctx.strokeStyle = "#cddc39"
+			ctx.arc(x,y,1.2*scale,0,2*Math.PI)
+		
+			ctx.closePath()
+			
+			ctx.stroke()
+			
+			//ctx.fill()	
+		}
+
+		}
+
+
+		//画时针
+		function drawhour(hour,m){
+			ctx.save()
+			ctx.beginPath()
+			ctx.translate(width/2,height/2)
+			var rad = 2 * Math.PI / 12 * hour;
+			var mrad = 2 * Math.PI / 12 / 60 *m;
+			ctx.rotate(rad + mrad);
+			ctx.lineWidth = 3;
+			ctx.lineCap = "round";
+			ctx.moveTo(0,0);
+			ctx.lineTo(0,-r/2.5);		
+			ctx.stroke();
+			ctx.restore()
+
+		}
+		
+		function drawminute(minute){
+			ctx.save()
+			ctx.beginPath()
+			ctx.translate(width/2,height/2)
+			var rad = 2 * Math.PI / 60 * minute;
+			ctx.rotate(rad);
+			ctx.lineWidth = 2;
+			ctx.lineCap = "round";
+			ctx.moveTo(0,0);
+			ctx.lineTo(0,-r/1.8);			
+			ctx.stroke();
+			ctx.restore()
+		};
+	
+
+		function drawsecond(second){
+			ctx.save()
+			ctx.beginPath()
+			ctx.strokeStyle = "#ff5722"
+			ctx.translate(width/2,height/2)
+			var rad = 2 * Math.PI / 60 * second;
+			ctx.rotate(rad);
+			ctx.lineWidth = 2;
+			ctx.lineCap = "round";
+			ctx.moveTo(0,0);
+			ctx.lineTo(0,-r/1.2);	
+			ctx.fill()
+			ctx.stroke();
+			ctx.restore()
+		};
+	
+		//画中间的圆
+		function focusdot(){
+		ctx.beginPath()
+		ctx.fillStyle ="orange"
+		ctx.lineWidth = 1;
+		ctx.arc(width/2,height/2,r/30,0,2*Math.PI)
+		ctx.fill()
+		ctx.closePath()
+		ctx.stroke()
+	}
+		function settime(){
+			ctx.clearRect(0,0,width,height)
+			var time = new Date();
+			var hour = time.getHours()
+			var minute = time.getMinutes()
+			var second = time.getSeconds()
+			if(hour > 12){
+				hour-=12
+			}	
+		drawbackground()
+		
+		drawhour(hour,minute);
+		drawminute(minute);
+		drawsecond(second);
+		 focusdot()
+		}
+		
+		settime()
+		setInterval(settime,1000)
+
+		var data =[
+				[{x:0,y:0},{x:100,y:100},{x:200,y:0},{color:"#00bcd4"}],
+				[{x:0,y:0},{x:0,y:40},{x:100,y:100},{color:"#4caf50"}],
+				[{x:0,y:40},{x:0,y:120},{x:100,y:100},{color:"#673ab7"}],
+				[{x:0,y:120},{x:0,y:200},{x:100,y:100},{color:"#ff5722"}],
+				[{x:0,y:200},{x:100,y:100},{x:200,y:100},{x:100,y:200},{color:"#3f51b5"}],
+				[{x:200,y:100},{x:100,y:200},{x:200,y:200},{color:"#cddc39"}],
+				[{x:100,y:100},{x:200,y:100},{x:200,y:0},{color:"#ffeb3b"}],
+
+					]
+					
+		// ctx.beginPath()
+		// ctx.moveTo(40,120)
+		// ctx.lineTo(60,120)
+		// ctx.lineTo(50,90)
+		// ctx.lineTo(30,90)
+		// ctx.closePath()
+		// ctx.fillStyle = "red"
+		// ctx.fill()
+		// ctx.lineWidth = 2;
+		// ctx.strokeStyle = "blue"
+		// ctx.stroke()
+		
+		function draw(located,ctxobj){
+
+			
+			for(var j = 0;j<located.length;j++){
+			ctxobj.beginPath();
+			ctxobj.moveTo(located[j][0].x,located[j][0].y)
+			for(var i = 1;i<located[j].length;i++){
+				ctxobj.lineTo(located[j][i].x,located[j][i].y)
+		
+
+			}
+			ctxobj.closePath();
+			
+			ctxobj.fillStyle =located[j][located[j].length-1].color
+			ctxobj.fill()
+			ctxobj.strokeStyle = "white"
+			ctxobj.lineWidth = 2
+			ctxobj.stroke()
+
+			}
+			
+			
+		}
+			 //draw(data,ctx)
+
+	</script>
+</body>
+</html>

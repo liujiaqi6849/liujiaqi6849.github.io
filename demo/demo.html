@@ -100,7 +100,7 @@
 				position: absolute;
 				top:100%;
 				left:50%;
-				width:40px;
+				white-space: nowrap;
 				transform: translate(-50%);
 				line-height: 20px;
 				font-size: 14px;
@@ -185,7 +185,7 @@
 		.inner ul{
 			display: flex;
 			flex-wrap: wrap;
-			justify-content: space-between;
+			justify-content: flex-start;
 			align-content:space-between;
 			height:200px;
 			padding: 20px;
@@ -201,6 +201,7 @@
 			cursor: pointer;
 			text-align: center;
 			position: relative;
+			padding-right: 5px;
 
 		}
 		.inner li img{
@@ -236,17 +237,24 @@
 				<ul >
 					<li><a href="slide/scroll.html" target="_blank"><img src="images/icon2.jpg" alt=""></a><span>滑动幻灯</span></li>
 					<li><a href="slide/fadein.html" target="_blank"><img src="images/icon5.jpg" alt=""></a><span>淡入淡出</span></li>
-					<li><span>倒萨</span></li>
+					
 				</ul>
 				<span>幻灯</span>
 				</li>
-				<li class="secondmenu"><span>HTML页面</span></li>
-				<li><img src="images/icon2.jpg" alt=""><span>幻灯</span></li>
-				<li><img src="images/icon3.jpg" alt=""><span>幻灯</span></li>
-				<li><img src="images/icon4.jpg" alt=""><span>幻灯</span></li>
-				<li><img src="images/icon5.jpg" alt=""></li>
+
+				<li><a href="fallwat/fall.html"> <img src="images/icon2.jpg" alt=""></a><span>瀑布流</span></li>
+				<li><a href="clock/clock.html" target="_blank"><img src="images/clock.png" alt=""></a><span>canvas时钟</span></li>
+				
+				<li><a href="../index.html" target="_blank"><img src="images/icon5.jpg" alt=""></a><span>简历</span></li>
+				<li><a href="autoediter/autoediter.html" target="_blank"><img src="images/icon4.jpg" alt=""></a><span>模仿输入插件</span></li>
 				<li><img src="images/icon6.jpg" alt=""></li>
 				<li><img src="images/icon7.jpg" alt=""></li>
+				<li class="secondmenu">
+				<ul>
+					<li><a href="podcast/podcast-index.html" target="_blank"><img src="images/icon2.jpg" alt=""></a><span>静态1</span></li>
+					<li><a href="tour/tourindex.html" target="_blank"><img src="images/icon5.jpg" alt=""></a><span>静态2</span></li>
+					
+				</ul><span>HTML页面</span></li>
 				<li><img src="images/icon8.jpg" alt=""></li>
 				<li><img src="images/icon9.jpg" alt=""></li>
 				<li><img src="images/icon1.jpg" alt=""></li>

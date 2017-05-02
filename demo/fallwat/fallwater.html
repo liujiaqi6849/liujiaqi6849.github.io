@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fallwater</title>
+	<style>
+		#container{
+			position: relative;
+		}
+		.box{
+			padding:10px 0 0 10px;
+			float:left;
+
+
+
+		}
+		.pic{
+			padding: 15px;
+			border:solid 2px #eee;	
+			border-radius: 15px;
+
+	
+		}
+		.pic img{
+			width:300px;
+			height:auto;
+		}
+	</style>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+</head>
+<body>
+<div id="container">
+	<div class="box">
+		<div class="pic"><img src="1.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="2.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="3.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="4.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="5.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="6.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="7.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="9.jpg" alt=""></div>
+	</div>
+
+	<div class="box">
+		<div class="pic"><img src="10.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="11.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="12.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="13.jpg" alt=""></div>
+	</div>
+</div>
+<script>
+	$(function(){
+
+		//1.排列函数
+		setposition()
+		//2. 布局函数
+		waterfall()
+				
+
+	});
+	function setposition(){
+
+			var boxs = $('.box');
+			var winhei = $(window).height(),
+				winwid = $(window).width();
+			var boxhei = Math.floor(winhei/5),
+				boxwid = Math.floor(winwid/4);
+			
+			boxs.each(function(index,val){
+					var rotanum = Math.floor(Math.random()*360);
+					if(boxwid > 2*Math.floor(winwid/4)){boxhei+=220,boxwid = Math.floor(winwid/4)};
+					$(this).css({
+							position:"absolute",
+							top:boxhei+"px",
+							left:boxwid+"px",
+							transform:"rotate("+ rotanum +"deg)"
+
+								})
+					boxwid+=100;
+
+			})
+	}
+	function waterfall(){
+
+		var winwid = $(window).width();
+		var col =Math.floor(winwid / $('.box').outerWidth());
+		$('#container').css({
+						width:col*$('.box').outerWidth() + "px",
+						margin:"0 auto",
+							});
+		var boxhei =[];
+		var waittime = 0;
+		$('.box').each(function(index,val){
+			if(index < col){
+				$(this).css({
+						left:$('.box').outerWidth() * index + "px",
+						top:0,
+						transform:"rotate(0)",
+						transition:"all 1s ease"+ " "+ waittime +"s",
+							})
+				waittime+=1;
+				boxhei.push($(this).outerHeight());
+			}
+			else{
+				var boxmin = Math.min.apply(null,boxhei);
+				var boxminindex = $.inArray(boxmin,boxhei);
+				
+				$(this).css({
+						left:$(this).outerWidth() * boxminindex + "px" ,
+							top: boxhei[boxminindex] + "px",
+						transform:"rotate(0)",
+						transition:"all 1s ease"+ " "+ waittime +"s",
+						
+							})
+				waittime+=1;
+				boxhei[boxminindex]+=$(this).outerHeight();
+
+			}
+		})
+
+	}
+function doload(){
+
+	
+}
+
+
+</script>
+</body>
+</html>

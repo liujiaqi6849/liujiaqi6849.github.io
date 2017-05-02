@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fallwater</title>
+	<style>
+		#container{
+			position: relative;
+		}
+		.box{
+			padding:10px 0 0 10px;
+			float:left;
+
+
+
+		}
+		.pic{
+			padding: 15px;
+			border:solid 2px #eee;	
+			border-radius: 15px;
+
+	
+		}
+		.pic img{
+			width:300px;
+			height:auto;
+		}
+	</style>
+</head>
+<body>
+<div id="container">
+	<div class="box">
+		<div class="pic"><img src="1.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="2.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="3.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="4.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="5.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="6.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="7.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="9.jpg" alt=""></div>
+	</div>
+
+	<div class="box">
+		<div class="pic"><img src="10.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="11.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="12.jpg" alt=""></div>
+	</div>
+
+
+	<div class="box">
+		<div class="pic"><img src="13.jpg" alt=""></div>
+	</div>
+</div>
+<script>
+	window.onload = function(){
+
+
+		 fallwater('container')
+		 window.onscroll = function(){
+		var dataimg =[
+					"1.jpg",
+					"2.jpg",
+					"3.jpg",
+					"4.jpg",
+					"5.jpg",
+					"6.jpg",
+					"7.jpg",
+					"8.jpg",
+					"9.jpg",
+					"10.jpg"
+						]
+		if(overheight()){
+			for(var i = 0;i<dataimg.length;i++){
+				var oparents =document.getElementById("container");
+				var newbox = document.createElement("div");
+				newbox.className = "box";
+				oparents.appendChild(newbox);
+				var newpic = document.createElement("div");
+				newpic.className = "pic";
+				newbox.appendChild(newpic);
+				var newimg =document.createElement("img");
+				newimg.src = dataimg[i];
+				newpic.appendChild(newimg);
+				 
+				}
+				fallwater('container')
+		}
+
+	}
+
+	}
+	
+	//检测是否满足条件
+	function overheight(){
+		var oparents = document.getElementById('container');
+		var wintop = document.documentElement.scrollTop || document.body.scrollTop;
+		var boxs = getbyclass("box",'container');
+		//像素不能为浮点数
+		var lastboxhei = boxs[boxs.length-1].offsetTop + Math.floor(boxs[boxs.length-1].offsetHeight/2);
+		var clwidth = document.documentElement.clientHeight || document.body.clientHeight;
+		//当wintop + clientheight > last的offsethei+自身一半高度，开始加载
+		if(wintop + clwidth > lastboxhei ){
+			return true
+		}
+		else{
+			return false
+		}
+
+	}
+//瀑布流布局函数
+	function fallwater(parents){
+			//先拿到父容器，再取到子集
+			var oparents = document.getElementById(parents);
+			var boxs = getbyclass("box",parents);
+			//拿到一行排几列，向下取整
+			var col = Math.floor(document.documentElement.clientWidth / boxs[0].offsetWidth);
+			var boxheight =[];
+			oparents.style.cssText = "width:"+col*boxs[0].offsetWidth + "px;"+"margin:0 auto";
+			for(var i = 0 ;i < boxs.length;i++){
+				if(i < col ){
+					boxheight.push(boxs[i].offsetHeight)
+				}	
+				else{
+					var bhindex = getsmallindex(boxheight);
+					boxs[i].style.position = "absolute";
+					boxs[i].style.left = boxs[bhindex].offsetLeft + "px";
+					boxs[i].style.top = boxheight[bhindex] + "px";
+				
+					boxheight[bhindex]+=boxs[i].offsetHeight;
+
+				}
+
+			}
+
+
+	}
+	//取得最小数字的index
+	function getsmallindex(arr){
+
+		var minh = Math.min.apply(null,arr);
+		for(var i = 0;i < arr.length;i++){
+				if(arr[i] === minh ){
+					return i
+				}
+
+		}
+
+	}
+
+
+	//取子元素函数
+	function getbyclass(clsname,parents){
+
+		var oparents = document.getElementById(parents);
+		var ochilds = oparents.getElementsByTagName('*');
+		var getchilds = [];
+		for(var i = 0;i < ochilds.length; i++){
+			if(ochilds[i].className === clsname){
+					getchilds.push(ochilds[i])
+			}
+		}
+		return getchilds;
+	}
+</script>
+</body>
+</html>
