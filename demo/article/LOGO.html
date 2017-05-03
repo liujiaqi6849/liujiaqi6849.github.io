@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LOGO</title>
+	<style>
+	*{
+		margin:0;
+		padding: 0;
+	}
+	body{
+		background: #f5f5dc;
+	}
+	.page{
+		width:400px;
+		height:500px;
+		margin:30px auto; 
+		box-shadow:0 2px 10px 1px rgba(0, 0, 0, 0.2);
+		padding: 40px 20px 20px 20px;
+		background: #fff;
+		position: relative;
+		padding:100px 20px 20px 20px;
+	}
+	.page h1{
+		margin-bottom:20px; 
+	}
+	.page p{
+		text-indent: 2em;
+		line-height: 2em;
+	}
+
+	.page::before{
+		content: "LOGO";
+		position: absolute;
+		top:20px;
+		left:-20px;
+		width:150px;
+		height:50px;
+		line-height: 50px;
+		background:rgba(33, 150, 243,1);
+		text-align: center;
+		color:#fff;
+		box-shadow:3px 2px 8px 1px #888;
+		font-size:1.2em;
+	}
+	.page::after{
+		content: "";
+		position: absolute;
+		top:70px;
+		left:-20px;
+		width:0;
+		height:0;
+		border-top:20px solid  rgba(33, 150, 243,1);
+		border-left:20px solid  transparent;
+
+	
+	
+	}
+	</style>
+</head>
+
+<body>
+<div class="page">
+	<h1>Headline</h1>
+	
+	<p>Cristiano Ronaldo scored another Champions League hat-trick as Real Madrid thrashed Atletico Madrid in the semi-final first leg to close in on a third final in four years.</p>
+</div>
+	
+</body>
+</html>

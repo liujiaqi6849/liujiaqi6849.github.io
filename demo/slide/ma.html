@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+	<script src="carousel.js"></script>
+	<style>
+		ul{
+			list-style: none;
+			position: relative;
+		}
+		li{
+			position: absolute;
+			overflow: hidden
+		}
+		ul>a{
+			
+			text-align: center;
+			background: rgba(0,0,0,0);
+
+		}
+		ul>a:hover{
+			
+			text-align: center;
+			background: rgba(0,0,0,0.5);
+
+		}
+
+		li img{
+				width:100%;
+				height:100%;
+		}
+		ul>a img{
+				width:20%;
+				height:10%;
+				vertical-align: middle;
+		
+		}
+	</style>
+</head>
+<body>
+<div data-setting = '{
+					"width":1000,
+					"height":500,
+					"imgwidth":800,
+					"imgheight":400,
+					"scale":0.7,
+					"speed":500,					
+					"vertical":"middle"
+					}'>
+	<ul>
+		<li><img src="1.jpg" /></li>
+		<li><img src="2.jpg" /></li>
+		<li><img src="3.jpg" /></li>
+		<li><img src="4.jpg" /></li>
+		<li><img src="5.jpg" /></li>
+		<a href="javascript:;" id="prevbtn"><img src="left.png" alt=""></a>
+		<a href="javascript:;" id="nextbtn"><img src="right.png" alt=""></a>
+		
+	
+
+	</ul>
+	
+
+</div>
+<div>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	<a href="javascript:;" id="prevbtn"><img src="left.png" alt=""></a>
+		<a href="javascript:;" id="nextbtn"><img src="right.png" alt=""></a>
+
+	</ul>
+	
+
+</div>
+<script>
+	$(function(){
+
+
+		//var carousel = new Carousel()
+
+
+		// var setting = {
+		// 					width:1000,
+		// 					height:500,
+		// 					imgwidth:600,
+		// 					imgheight:300,
+		// 					scale:0.9,
+		// 					speed:500,
+		// 					vertical:"middle"
+						
+
+
+		// 				}
+	$("div").Carousel();
+
+	})
+
+</script>
+	
+</body>
+</html>

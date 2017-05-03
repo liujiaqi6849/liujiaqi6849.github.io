@@ -149,6 +149,7 @@
 		.foot{
 			height:60px;
 			text-align: center;
+			position: relative;
 		}
 		.foot #btn{
 			display: inline-block;
@@ -158,6 +159,46 @@
 			margin:10px auto;
 			border-radius: 25px;
 			border:4px solid #9e9e9e;
+			cursor: pointer;
+		}
+		.foot .hand{
+			position: absolute;
+			top:50%;
+			left:60%;
+			width:40px;
+			height:40px;
+			background: url(images/hand.png) no-repeat;
+			background-size: 100%;
+			z-index:50;
+			transform: rotate(-20deg);
+			animation: hand 2s infinite
+		}
+		@keyframes hand{
+			0%{
+				left:55%;
+				top:70%;
+				transform: scale(1) rotate(-20deg);
+				
+				
+			}
+			50%{
+				left:45%;
+				top:50%;
+				transform: scale(1) rotate(-20deg);
+			
+			}
+			70%{
+				left:45%;
+				top:50%;
+				transform: scale(0.8) rotate(-20deg);
+				
+			}
+			100%{
+				left:55%;
+				top:70%;
+				transform: scale(1) rotate(-20deg);
+				
+			}
 		}
 		.box{
 			width:280px;
@@ -168,6 +209,12 @@
 			left:20px;
 			display: none;
 			z-index: 10;
+		}
+		.lock{
+			display: block;
+			background: url("images/mainbg.png") no-repeat;
+			background-size: cover;
+
 		}
 		.inner{
 			position: absolute;
@@ -220,6 +267,40 @@
 				line-height: 20px;
 				font-size: 12px;
 		}
+
+		#lockbox{
+			width:180px;
+			height:40px;
+			background:rgba(238,238,238,0.5);
+			border-radius: 20px;
+			margin:0px auto;
+			position: relative;
+			text-align: center;
+			line-height: 40px;
+			margin-top: 350px;
+			color:#fff;
+
+
+		}
+		#lockbox p{
+			
+			width:40px;
+			height: 40px;
+			border-radius: 20px;
+			background:#ff5722;
+			position: absolute;
+			top:0;
+			left:0;
+			cursor: move;
+			
+
+		}
+		.off{
+			z-index: 99;
+			background: #000;
+			display: block;
+
+		}
 	</style>
 </head>
 <body>
@@ -228,14 +309,24 @@
 			<span></span>
 			<p></p>
 		</div>
-		<div class="box"></div>
+		
+		<div class="box menu"></div>
+		<div class="box lock">
+			<div id="lockbox">
+			<span>请滑动解锁</span>
+
+			<p></p>
+		
+			</div>
+		</div>
+		<div class="box off"></div>
 		<div class="inner"><ul></ul></div>
 		<div class="screen">
 	
 			<ul >
 				<li class="secondmenu">
 				<ul >
-					<li><a href="slide/scroll.html" target="_blank"><img src="images/icon2.jpg" alt=""></a><span>滑动幻灯</span></li>
+					<li><a href="slide/scroll.html" target="_blank"><img src="images/icon1.jpg" alt=""></a><span>滑动幻灯</span></li>
 					<li><a href="slide/fadein.html" target="_blank"><img src="images/icon5.jpg" alt=""></a><span>淡入淡出</span></li>
 					
 				</ul>
@@ -246,17 +337,17 @@
 				<li><a href="clock/clock.html" target="_blank"><img src="images/clock.png" alt=""></a><span>canvas时钟</span></li>
 				
 				<li><a href="../index.html" target="_blank"><img src="images/icon5.jpg" alt=""></a><span>简历</span></li>
-				<li><a href="autoediter/autoediter.html" target="_blank"><img src="images/icon4.jpg" alt=""></a><span>模仿输入插件</span></li>
-				<li><img src="images/icon6.jpg" alt=""></li>
-				<li><img src="images/icon7.jpg" alt=""></li>
+				<li><a href="autoediter/autoediter.html" target="_blank"><img src="images/icon4.jpg" alt=""></a><span>输入插件</span></li>
+				<li><a href="slide/ma.html" target="_blank"><img src="images/icon6.jpg" alt=""></a><span>旋转木马</span></li>
+				<li><a href="fallwat/fallwater.html" target="_blank"><img src="images/icon7.jpg" alt=""></a><span>图片分散</span></li>
 				<li class="secondmenu">
 				<ul>
-					<li><a href="podcast/podcast-index.html" target="_blank"><img src="images/icon2.jpg" alt=""></a><span>静态1</span></li>
-					<li><a href="tour/tourindex.html" target="_blank"><img src="images/icon5.jpg" alt=""></a><span>静态2</span></li>
+					<li><a href="podcast/podcast-index.html" target="_blank"><img src="images/icon3.jpg" alt=""></a><span>静态1</span></li>
+					<li><a href="tour/tourindex.html" target="_blank"><img src="images/icon4.jpg" alt=""></a><span>静态2</span></li>
 					
 				</ul><span>HTML页面</span></li>
-				<li><img src="images/icon8.jpg" alt=""></li>
-				<li><img src="images/icon9.jpg" alt=""></li>
+				<li><a href="article/logo.html" target="_blank"><img src="images/icon8.jpg" alt=""></a><span>文章样式</span></li>
+				<li><a href="draft/draft.html" target="_blank"><img src="images/icon9.jpg" alt=""></a><span>滑动解锁</span></li>
 				<li><img src="images/icon1.jpg" alt=""></li>
 				<li><img src="images/icon1.jpg" alt=""></li>
 				<li><img src="images/icon1.jpg" alt=""></li>
@@ -270,7 +361,7 @@
 				
 			</ul>
 		</div>
-		<div class="foot"><span id="btn"></span></div>
+		<div class="foot"><div class="hand"></div><span id="btn"></span></div>
 		
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
@@ -282,7 +373,7 @@
 	$(".screen").children("ul").css({
 				filter:"blur(10px)",
 							})
-	$(".box").css({
+	$(".menu").css({
 		display:"block",
 				})
 	$(".inner").css({
@@ -294,11 +385,11 @@
 		}
 	});
 	//点击之后返回
-	$(".box").click(function(){
+	$(".menu").click(function(){
 		$(".screen").children("ul").css({
 				filter:"blur(0px)",
 	})
-		$(".box").css({
+		$(".menu").css({
 		display:"none",
 	})
 		$(".inner").css({
@@ -307,7 +398,44 @@
 		$(".inner ul").html("");
 
 	})
+	//按钮事件
+	$("#btn").click(function(){
+		$(".hand").css({display:"none"})
+		$(".inner").css({display:"none"})
+		$(".off").fadeToggle(2000,function(){
+			$(".lock").css({display:"block"})
+		})
 		
+	})
+	//解锁函数
+	
+	
+	setlock($("#lockbox").find("p").eq(0),$("#lockbox"),function(){
+		$(".lock").fadeOut(2000,function(){
+			$("#lockbox").find("p").css({left:0});
+			$("#lockbox").find("span").text("请滑动解锁")
+		});
+	})
+
+	function setlock(circle,box,callback){
+		circle.on("mousedown",function(e){
+
+			document.onmousemove=function(e){
+				if(e.pageX - box.offset().left < 0){return circle.css({left:0})}
+				if(e.pageX - box.offset().left > box.width() - circle.width()){return circle.css({left:box.width()-circle.width()})}
+					circle.css({left:e.pageX - box.offset().left})
+			}
+		 document.onmouseup =function(){
+  			if(circle.position().left !== box.width() -circle.width()){circle.css({left:0});}
+  			if(circle.position().left  == box.width() -circle.width()){box.find("span").text("已解锁"),callback()}
+            document.onmousemove = null;
+            document.onmouseup = null;
+
+
+		}})
+	}
+	
+
 	</script>
 </body>
 </html>
