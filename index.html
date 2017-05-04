@@ -25,8 +25,8 @@
 	<h1 class="title">刘嘉琪</h1>
 	<p>542471870@qq.com</p>
 	<p>求职：前端工程师</p>
-	<audio style="display: block;margin:0 auto"src="http://sc1.111ttt.com/2015/1/01/16/94161509315.mp3" controls="controls">
-</audio>
+	<!-- <audio style="display: block;margin:0 auto"src="http://sc1.111ttt.com/2015/1/01/16/94161509315.mp3" controls="controls">
+</audio> -->
 
 	
 	<!-- 弹幕 -->
@@ -34,27 +34,19 @@
 		<ul>
 			<li>(゜-゜)つロ -前方に高能，非战斗人员请后退~</li>
 			<li>66666666</li>
-			<li>辣鸡前端┗|｀O′|┛ 嗷~~</li>
+			<li>辣鸡┗|｀O′|┛ 嗷~~</li>
 			<li>GGGGG</li>
 			<li>转行自学狗</li>
 			<li>求工作~~~</li>
 			<li>老司机带带我~~</li>
 			<li>你根本不是司机</li>
 			<li>嗷呜~~~</li>
-			<li>大苏打</li>
-			<li>大苏打</li>
-			<li>大苏打</li>
-			<li>大苏打</li>
-			<li>大苏打</li>
-			<li>大苏打</li>
-			<li>大苏打</li>
-			<li>大苏打</li>
-			<li>大苏打</li>
-			<li>大苏打</li>
-			<li>大苏打</li>
-			<li>大苏打</li>
-			<li>大苏打</li>
-			<li>大苏打</li>
+			<li>双击6666！！</li>
+			<li>GG!!拉闸~~~</li>
+			<li>怕是翻皮水哦~</li>
+			<li>战斗力只有5的渣渣</li>
+			<li>么么哒~~</li>
+			
 
 		</ul>
 		
@@ -183,7 +175,7 @@
 		<li><span><img src="images/contact3.png" alt=""></span><p>wechat：liujiaqi6849</p></li>
 	</ul>
 	
-	<a href="">下载简历</a>
+	<a href="刘嘉琪-前端-简历.pdf">下载简历</a>
 	</div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
@@ -242,7 +234,6 @@
 		 				});
 
 	})
-	//$("#fullpage .slide").click(function(){$.fn.fullpage.moveTo(2,2)})
 	
 </script>
 <script>
@@ -253,17 +244,17 @@
 			});
 //问候
  var nowtime = new Date();
-		 var hello = ["早上好,很高兴见到你~~","下午好,xx","晚上好,第三代"];
+		 var hello = ["Hi,早上好","Hi,下午好","Hi,晚上好"];
 		 var nowhour = nowtime.getHours();
-		 console.log(nowhour)
+		
 		 if( nowhour >= 6 && nowhour < 12 ){
-		 	$(".aboutme").find("span").text(hello[0])
+		 	$(".hello").text(hello[0])
 		 }
 		 else if (nowhour >= 12 &&nowhour < 18){
-		 	$(".aboutme").find("span").text(hello[1])
+		 	$(".hello").text(hello[1])
 		 }
 		 else{
-		 	$(".aboutme").find("span").text(hello[2])
+		 	$(".hello").text(hello[2])
 		 }
 		 //监听拉开头像的CSS3动画事件
 		 $(".headimg").find("div").each(function(){
@@ -273,39 +264,11 @@
 		 	})
 		 })
 
-		//设置拉开屏幕
-		// var dheight = $(".headimg").find(".left").height()
-
-		// $(".headimg").find("div").each(function(){
-		// 	$(this).animate({
-		// 			transform:"rotate(0deg)"
-		// 				},2000,function(){
-
-		// 				})
-
-		// })
-	
-		// $(".headimg").find(".left").animate({
-		// 								transform:"rotate(0deg)",
-										
-		// 									},2000)
-		// $(".headimg").find(".left").animate({
-		// 								marginLeft:-50+"%",
-										
-		// 									},2000)
-		// $(".headimg").find(".right").animate({
-		// 								marginLeft:100+"%",
-									
-		// 									},2000,function(){
-		// 										$(".headimg").find(".right").css({display:"none"})
-		// 										$(".headimg").find(".left").css({display:"none"})
-		// 									})
-
-		})
+		
+		
 
 
-		//about  me						
-	
+		
 	//切换按钮事件
 	$(".shiftbtn").find("span").each(function(i,ele){
 		$(this).click(function(){
@@ -319,7 +282,7 @@
 			}
 		})
 	})
-
+})
 	</script>
 	
 

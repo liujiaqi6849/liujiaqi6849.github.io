@@ -64,6 +64,24 @@
 			
 
 		}
+		.statusbar{
+				display: flex;
+				justify-content: space-between;
+				height:20px;
+
+		}
+		.statusbar span{
+				white-space: nowrap;
+				font-size: 12px;
+				color:#fff;
+
+		}
+
+		.statusbar .bar{
+				
+				display: flex;
+				width:60px;
+		}
 		.screen>ul{
 			position: relative;
 			list-style: none;
@@ -72,8 +90,7 @@
 			justify-content: space-between;
 			align-content:space-between;
 			height:400px;
-		
-			padding: 20px;
+			padding:0 20px 20px 20px;
 			color:#fff;
 		}
 		.screen>ul>li{
@@ -301,6 +318,7 @@
 			display: block;
 
 		}
+		
 	</style>
 </head>
 <body>
@@ -322,7 +340,17 @@
 		<div class="box off"></div>
 		<div class="inner"><ul></ul></div>
 		<div class="screen">
-	
+		<div class="statusbar">
+			<div class="bar"><canvas width="80" height="40" id="signal" style="width:40px;height:20px">0.0不支持canvas呢~</canvas>
+			<span>催债的</span>
+			<canvas width="40px"  height="40px" id="wifi" style="width:20px;height:20px" >0.0不支持canvas呢~</canvas>
+			</div>
+			<span class="time">12:00</span>
+			<div class="bar">
+			<span>90%</span>
+			<canvas width="80" height="40" id="battery" style="width:40px;height:20px">0.0不支持canvas呢~</canvas>
+			</div>
+		</div>
 			<ul >
 				<li class="secondmenu">
 				<ul >
@@ -348,12 +376,12 @@
 				</ul><span>HTML页面</span></li>
 				<li><a href="article/logo.html" target="_blank"><img src="images/icon8.jpg" alt=""></a><span>文章样式</span></li>
 				<li><a href="draft/draft.html" target="_blank"><img src="images/icon9.jpg" alt=""></a><span>滑动解锁</span></li>
-				<li><img src="images/icon1.jpg" alt=""></li>
-				<li><img src="images/icon1.jpg" alt=""></li>
-				<li><img src="images/icon1.jpg" alt=""></li>
-				<li></li>
-				<li></li>
-				<li></li>
+				<li ></li>
+				<li ></li>
+				<li ></li>
+				<li ></li>
+				<li ></li>
+				<li ></li>
 				<li class="system"><img src="images/call.png" alt=""><span>电话</span></li>
 				<li class="system"><img src="images/email.png" alt=""><span>邮件</span></li>
 				<li class="system"><img src="images/message.png" alt=""><span>信息</span></li>
@@ -366,6 +394,12 @@
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 	<script>
+		//状态栏时间
+		$()
+	var now = new Date();
+	$(".time").text(now.getHours()+":"+now.getMinutes())
+
+
 	//点击二级菜单
 	$('.secondmenu').on("click",function(){
 		
@@ -402,6 +436,10 @@
 	$("#btn").click(function(){
 		$(".hand").css({display:"none"})
 		$(".inner").css({display:"none"})
+		$(".screen").children("ul").css({
+				filter:"blur(0px)",
+	})
+
 		$(".off").fadeToggle(2000,function(){
 			$(".lock").css({display:"block"})
 		})
@@ -434,7 +472,64 @@
 
 		}})
 	}
-	
+	//canvas
+
+	//信号图
+	function drawall(){
+		for(var i =0;i<5;i++){
+			drawsignal(8+16*i)
+		}
+		for(var j = 0;j<3;j++){
+			drawwifi(4+j*8)
+		}
+		var battery =[{x:4,y:6,w:48,h:22},{x:8,y:10.8,w:36,h:13},{x:53,y:14,w:4,h:6}]
+		for(var k = 0;k<3;k++){
+			drawbattery(battery[k].x,battery[k].y,battery[k].w,battery[k].h)
+		}
+		
+
+		
+	}
+	drawall()
+
+
+	function drawsignal(x){
+	var signal=document.getElementById("signal");
+	var ctx=signal.getContext("2d");
+	ctx.fillStyle="#fff";
+	ctx.strokeStyle="#fff";
+	ctx.beginPath();
+	ctx.arc(x,16,5,0,Math.PI*2);
+	ctx.closePath();
+	if(x !== 72){ctx.fill()}
+	ctx.stroke()
+	}
+
+	function drawwifi(r){
+	var signal=document.getElementById("wifi");
+	var ctx=signal.getContext("2d");
+	ctx.lineWidth =4;
+	ctx.strokeStyle="#fff";
+	ctx.beginPath();
+	ctx.arc(20,28,r,Math.PI*1.3,Math.PI*1.7);
+
+	ctx.stroke()
+	}
+
+	function drawbattery(x,y,w,h){
+	var signal=document.getElementById("battery");
+	var ctx=signal.getContext("2d");
+	ctx.lineWidth =1;
+
+	ctx.fillStyle="#fff";
+	ctx.strokeStyle="#fff";
+	ctx.beginPath();
+	ctx.rect(x,y,w,h);
+	if(h<14){ctx.fill()}
+	ctx.stroke();
+	ctx.closePath();
+
+	}
 
 	</script>
 </body>
