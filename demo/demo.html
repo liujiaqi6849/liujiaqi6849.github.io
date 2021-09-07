@@ -473,8 +473,8 @@
 					circle.css({left:e.pageX - box.offset().left})
 			}
 		 document.onmouseup =function(){
-  			if(circle.position().left !== box.width() -circle.width()){circle.css({left:0});}
-  			if(circle.position().left  == box.width() -circle.width()){box.find("span").text("已解锁"),callback()}
+  			//if(circle.position().left !== box.width() -circle.width()){circle.css({left:0});}
+  			if(circle.position().left  !== box.width() -circle.width()){box.find("span").text("已解锁"),callback()}
             document.onmousemove = null;
             document.onmouseup = null;
 
